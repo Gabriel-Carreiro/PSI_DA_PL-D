@@ -29,51 +29,53 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonCriarSala = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numeroColunaCriar = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.numeroFilaCriar = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.numeroSala = new System.Windows.Forms.ComboBox();
+            this.buttonEditarSala = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numeroColunaEditar = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numeroFilaEditar = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tBEmailCinema = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tBMoradaCinema = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tBNomeCinema = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numeroColunaCriar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeroFilaCriar)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeroColunaEditar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeroFilaEditar)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.tabControl1);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.tBEmailCinema);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.tBMoradaCinema);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.tBNomeCinema);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 41);
             this.groupBox1.Name = "groupBox1";
@@ -81,72 +83,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 152);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nome";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(148, 146);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 22);
-            this.textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(148, 198);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(236, 22);
-            this.textBox2.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 204);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Morada";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(148, 251);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(236, 22);
-            this.textBox3.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 257);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 16);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Email";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 313);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 16);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Numero de salas";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(151, 313);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(225, 16);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Ira receber o numero de salas atuais";
             // 
             // tabControl1
             // 
@@ -160,12 +96,12 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.buttonCriarSala);
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label11);
-            this.tabPage1.Controls.Add(this.numericUpDown1);
+            this.tabPage1.Controls.Add(this.numeroColunaCriar);
             this.tabPage1.Controls.Add(this.label12);
-            this.tabPage1.Controls.Add(this.numericUpDown4);
+            this.tabPage1.Controls.Add(this.numeroFilaCriar);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
@@ -175,31 +111,14 @@
             this.tabPage1.Text = "Criar";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // buttonCriarSala
             // 
-            this.tabPage2.Controls.Add(this.comboBox1);
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.numericUpDown2);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.numericUpDown3);
-            this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(423, 279);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Editar";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(309, 184);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Criar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonCriarSala.Location = new System.Drawing.Point(309, 184);
+            this.buttonCriarSala.Name = "buttonCriarSala";
+            this.buttonCriarSala.Size = new System.Drawing.Size(75, 23);
+            this.buttonCriarSala.TabIndex = 25;
+            this.buttonCriarSala.Text = "Criar";
+            this.buttonCriarSala.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -219,12 +138,12 @@
             this.label11.TabIndex = 19;
             this.label11.Text = "Sala";
             // 
-            // numericUpDown1
+            // numeroColunaCriar
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(181, 127);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(71, 22);
-            this.numericUpDown1.TabIndex = 23;
+            this.numeroColunaCriar.Location = new System.Drawing.Point(181, 127);
+            this.numeroColunaCriar.Name = "numeroColunaCriar";
+            this.numeroColunaCriar.Size = new System.Drawing.Size(71, 22);
+            this.numeroColunaCriar.TabIndex = 23;
             // 
             // label12
             // 
@@ -235,12 +154,12 @@
             this.label12.TabIndex = 20;
             this.label12.Text = "Numero de colunas";
             // 
-            // numericUpDown4
+            // numeroFilaCriar
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(181, 88);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(71, 22);
-            this.numericUpDown4.TabIndex = 22;
+            this.numeroFilaCriar.Location = new System.Drawing.Point(181, 88);
+            this.numeroFilaCriar.Name = "numeroFilaCriar";
+            this.numeroFilaCriar.Size = new System.Drawing.Size(71, 22);
+            this.numeroFilaCriar.TabIndex = 22;
             // 
             // label13
             // 
@@ -251,14 +170,39 @@
             this.label13.TabIndex = 21;
             this.label13.Text = "Numero de filas";
             // 
-            // button1
+            // tabPage2
             // 
-            this.button1.Location = new System.Drawing.Point(309, 184);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "Editar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tabPage2.Controls.Add(this.numeroSala);
+            this.tabPage2.Controls.Add(this.buttonEditarSala);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.numeroColunaEditar);
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.numeroFilaEditar);
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(423, 279);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Editar";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // numeroSala
+            // 
+            this.numeroSala.FormattingEnabled = true;
+            this.numeroSala.Location = new System.Drawing.Point(181, 52);
+            this.numeroSala.Name = "numeroSala";
+            this.numeroSala.Size = new System.Drawing.Size(75, 24);
+            this.numeroSala.TabIndex = 33;
+            // 
+            // buttonEditarSala
+            // 
+            this.buttonEditarSala.Location = new System.Drawing.Point(309, 184);
+            this.buttonEditarSala.Name = "buttonEditarSala";
+            this.buttonEditarSala.Size = new System.Drawing.Size(75, 23);
+            this.buttonEditarSala.TabIndex = 32;
+            this.buttonEditarSala.Text = "Editar";
+            this.buttonEditarSala.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -269,12 +213,12 @@
             this.label6.TabIndex = 26;
             this.label6.Text = "Sala";
             // 
-            // numericUpDown2
+            // numeroColunaEditar
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(181, 127);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(71, 22);
-            this.numericUpDown2.TabIndex = 30;
+            this.numeroColunaEditar.Location = new System.Drawing.Point(181, 127);
+            this.numeroColunaEditar.Name = "numeroColunaEditar";
+            this.numeroColunaEditar.Size = new System.Drawing.Size(71, 22);
+            this.numeroColunaEditar.TabIndex = 30;
             // 
             // label7
             // 
@@ -285,12 +229,12 @@
             this.label7.TabIndex = 27;
             this.label7.Text = "Numero de colunas";
             // 
-            // numericUpDown3
+            // numeroFilaEditar
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(181, 88);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(71, 22);
-            this.numericUpDown3.TabIndex = 29;
+            this.numeroFilaEditar.Location = new System.Drawing.Point(181, 88);
+            this.numeroFilaEditar.Name = "numeroFilaEditar";
+            this.numeroFilaEditar.Size = new System.Drawing.Size(71, 22);
+            this.numeroFilaEditar.TabIndex = 29;
             // 
             // label9
             // 
@@ -301,13 +245,80 @@
             this.label9.TabIndex = 28;
             this.label9.Text = "Numero de filas";
             // 
-            // comboBox1
+            // label8
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(181, 52);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(75, 24);
-            this.comboBox1.TabIndex = 33;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(151, 313);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(225, 16);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Ira receber o numero de salas atuais";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(34, 313);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(110, 16);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Numero de salas";
+            // 
+            // tBEmailCinema
+            // 
+            this.tBEmailCinema.Location = new System.Drawing.Point(148, 251);
+            this.tBEmailCinema.Name = "tBEmailCinema";
+            this.tBEmailCinema.Size = new System.Drawing.Size(236, 22);
+            this.tBEmailCinema.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(34, 257);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 16);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Email";
+            // 
+            // tBMoradaCinema
+            // 
+            this.tBMoradaCinema.Location = new System.Drawing.Point(148, 198);
+            this.tBMoradaCinema.Name = "tBMoradaCinema";
+            this.tBMoradaCinema.Size = new System.Drawing.Size(236, 22);
+            this.tBMoradaCinema.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(34, 204);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 16);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Morada";
+            // 
+            // tBNomeCinema
+            // 
+            this.tBNomeCinema.Location = new System.Drawing.Point(148, 146);
+            this.tBNomeCinema.Name = "tBNomeCinema";
+            this.tBNomeCinema.Size = new System.Drawing.Size(236, 22);
+            this.tBNomeCinema.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(34, 152);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nome";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(295, 352);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(89, 31);
+            this.button1.TabIndex = 33;
+            this.button1.Text = "Editar";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Informacoes
             // 
@@ -322,12 +333,12 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numeroColunaCriar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeroFilaCriar)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeroColunaEditar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeroFilaEditar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -336,29 +347,30 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tBEmailCinema;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tBMoradaCinema;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tBNomeCinema;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonCriarSala;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numeroColunaCriar;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown numeroFilaCriar;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox numeroSala;
+        private System.Windows.Forms.Button buttonEditarSala;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numeroColunaEditar;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown numeroFilaEditar;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button1;
     }
 }

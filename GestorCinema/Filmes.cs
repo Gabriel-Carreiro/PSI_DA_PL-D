@@ -10,10 +10,9 @@ using System.Windows.Forms;
 
 namespace GestorCinema
 {
-    public partial class Clientes : Form
+    public partial class Filmes : Form
     {
-        public GroupBox MyGroupBox { get; private set; }
-        public Clientes()
+        public Filmes()
         {
             InitializeComponent();
             this.MyGroupBox = groupBox1;
@@ -21,5 +20,6 @@ namespace GestorCinema
             this.Controls.Add(this.MyGroupBox);
         }
 
+        public GroupBox MyGroupBox { get; internal set; }
     }
 }

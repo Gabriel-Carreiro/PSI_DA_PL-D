@@ -19,6 +19,8 @@ namespace GestorCinema
             this.MyGroupBox = groupBox1;
             this.MyGroupBox.Dock = DockStyle.Fill;
             this.Controls.Add(this.MyGroupBox);
+
         }
+
     }
 }
