@@ -11,20 +11,25 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GestorCinema
 {
-    public partial class Clientes : Form
+    public partial class ClientesForm : Form
     {
         public GroupBox MyGroupBox { get; private set; }
         ApplicationContext applicationContext;
         List<Cliente> clientes;
 
-        public Clientes()
+        public ClientesForm()
         {
             InitializeComponent();
+            //chamar a groupbox no form1
             this.MyGroupBox = groupBox1;
             this.MyGroupBox.Dock = DockStyle.Fill;
             this.Controls.Add(this.MyGroupBox);
+
+            //Ligação a base de dados
             applicationContext = new ApplicationContext();
+            //Criar lista de clientes
             clientes = new List<Cliente>();
+            //Pegar da base de dados na tabela Pessoas somente os que forem type Cliente e adicionar a lista
             clientes = applicationContext.Pessoas.OfType<Cliente>().ToList();
             
         }
@@ -36,28 +41,17 @@ namespace GestorCinema
             cliente.Morada = tbMorada.Text;
             cliente.Telefone = tbTelefone.Text;
             cliente.Nif = tbNif.Text;
+
+            //adiciona o cliente a lista clientes
             clientes.Add(cliente);
+            //adiciona o cliente a base de dados
             applicationContext.Pessoas.Add(cliente);
             applicationContext.SaveChanges();
             MessageBox.Show("cliente salvo");
             LimparFormulario();
         }
-        private void LimparFormulario()
-        {
-            tbId.Text = string.Empty;
-            tbNome.Text = string.Empty;
-            tbMorada.Text = string.Empty;
-            tbNif.Text = string.Empty;
-            tbTelefone.Text = string.Empty;
-        }
-        private void LimparListView()
-        {
-            while (listViewClientes.Items.Count > 0)
-            {
-                listViewClientes.Items.RemoveAt(0);
-            }
-        }
 
+        //Mostra os clientes na listView
         private void btMostrarTodosClientes_Click(object sender, EventArgs e)
         {
             LimparListView();
@@ -75,10 +69,12 @@ namespace GestorCinema
             }
         }
 
+        //Busca o cliente por nome ou telefone ou nif ou id
         private void btBuscarCliente_Click(object sender, EventArgs e)
         {
             string busca = tbBuscaCliente.Text.ToUpper();
-
+            
+            //Comparar a busca com os clientes e retornar uma lista com as respostas
             List<Cliente> clientesEncontrados = clientes.FindAll(cliente =>
                 cliente.Nome.ToUpper().Contains(busca) ||
                 cliente.Telefone.Equals(busca) ||
@@ -86,6 +82,8 @@ namespace GestorCinema
                 cliente.Id.ToString().Contains(busca)
             );
             LimparListView();
+
+            //adicionar os clientes encontrados na listView
             foreach (Cliente item in clientesEncontrados)
             {
                 var listViewItem = new ListViewItem(item.Id.ToString());
@@ -99,5 +97,21 @@ namespace GestorCinema
                 listViewClientes.Items.Add(listViewItem);
             }
         }
+        private void LimparFormulario()
+        {
+            tbId.Text = string.Empty;
+            tbNome.Text = string.Empty;
+            tbMorada.Text = string.Empty;
+            tbNif.Text = string.Empty;
+            tbTelefone.Text = string.Empty;
+        }
+        private void LimparListView()
+        {
+            while (listViewClientes.Items.Count > 0)
+            {
+                listViewClientes.Items.RemoveAt(0);
+            }
+        }
+
     }
 }

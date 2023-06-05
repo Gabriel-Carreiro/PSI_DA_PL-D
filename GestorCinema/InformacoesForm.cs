@@ -10,16 +10,18 @@ using System.Windows.Forms;
 
 namespace GestorCinema
 {
-    public partial class Login : Form
+    public partial class InformacoesForm : Form
     {
-        public Login()
+        public GroupBox MyGroupBox { get; set; }
+        public InformacoesForm()
         {
             InitializeComponent();
+            //chamar a groupbox no form1
+            this.MyGroupBox = groupBox1;
+            this.MyGroupBox.Dock = DockStyle.Fill;
+            this.Controls.Add(this.MyGroupBox);
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

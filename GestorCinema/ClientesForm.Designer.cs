@@ -1,6 +1,6 @@
 ﻿namespace GestorCinema
 {
-    partial class Clientes
+    partial class ClientesForm
     {
         /// <summary>
         /// Required designer variable.

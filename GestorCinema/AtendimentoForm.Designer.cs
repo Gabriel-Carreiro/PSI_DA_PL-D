@@ -1,6 +1,6 @@
 ﻿namespace GestorCinema
 {
-    partial class Atendimento
+    partial class AtendimentoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -263,7 +263,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // tableLayoutPanel1
             // 

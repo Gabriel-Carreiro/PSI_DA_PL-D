@@ -57,28 +57,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationContext.cs" />
-    <Compile Include="Atendimento.cs">
+    <Compile Include="AtendimentoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Atendimento.Designer.cs">
-      <DependentUpon>Atendimento.cs</DependentUpon>
+    <Compile Include="AtendimentoForm.Designer.cs">
+      <DependentUpon>AtendimentoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Bilhete.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="Cinema.cs" />
     <Compile Include="Cliente.cs" />
-    <Compile Include="Clientes.cs">
+    <Compile Include="ClientesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clientes.Designer.cs">
-      <DependentUpon>Clientes.cs</DependentUpon>
+    <Compile Include="ClientesForm.Designer.cs">
+      <DependentUpon>ClientesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Filme.cs" />
-    <Compile Include="Filmes.cs">
+    <Compile Include="FilmesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Filmes.Designer.cs">
-      <DependentUpon>Filmes.cs</DependentUpon>
+    <Compile Include="FilmesForm.Designer.cs">
+      <DependentUpon>FilmesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -87,23 +87,23 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Funcionario.cs" />
-    <Compile Include="Funcionarios.cs">
+    <Compile Include="FuncionariosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funcionarios.Designer.cs">
-      <DependentUpon>Funcionarios.cs</DependentUpon>
+    <Compile Include="FuncionariosForm.Designer.cs">
+      <DependentUpon>FuncionariosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Informacoes.cs">
+    <Compile Include="InformacoesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Informacoes.Designer.cs">
-      <DependentUpon>Informacoes.cs</DependentUpon>
+    <Compile Include="InformacoesForm.Designer.cs">
+      <DependentUpon>InformacoesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LugarButton.cs">
       <SubType>Component</SubType>
@@ -113,32 +113,32 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sala.cs" />
     <Compile Include="Sessao.cs" />
-    <Compile Include="Sessoes.cs">
+    <Compile Include="SessoesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sessoes.Designer.cs">
-      <DependentUpon>Sessoes.cs</DependentUpon>
+    <Compile Include="SessoesForm.Designer.cs">
+      <DependentUpon>SessoesForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Atendimento.resx">
-      <DependentUpon>Atendimento.cs</DependentUpon>
+    <EmbeddedResource Include="AtendimentoForm.resx">
+      <DependentUpon>AtendimentoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Clientes.resx">
-      <DependentUpon>Clientes.cs</DependentUpon>
+    <EmbeddedResource Include="ClientesForm.resx">
+      <DependentUpon>ClientesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Filmes.resx">
-      <DependentUpon>Filmes.cs</DependentUpon>
+    <EmbeddedResource Include="FilmesForm.resx">
+      <DependentUpon>FilmesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Funcionarios.resx">
-      <DependentUpon>Funcionarios.cs</DependentUpon>
+    <EmbeddedResource Include="FuncionariosForm.resx">
+      <DependentUpon>FuncionariosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Informacoes.resx">
-      <DependentUpon>Informacoes.cs</DependentUpon>
+    <EmbeddedResource Include="InformacoesForm.resx">
+      <DependentUpon>InformacoesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -149,8 +149,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Sessoes.resx">
-      <DependentUpon>Sessoes.cs</DependentUpon>
+    <EmbeddedResource Include="SessoesForm.resx">
+      <DependentUpon>SessoesForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

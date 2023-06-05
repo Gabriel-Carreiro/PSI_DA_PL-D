@@ -11,22 +11,20 @@ using System.Windows.Forms;
 
 namespace GestorCinema
 {
-    public partial class Atendimento : Form
+    public partial class AtendimentoForm : Form
     {
 
-        public Atendimento()
+        public AtendimentoForm()
         {
             InitializeComponent();
 
         }
 
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+        //Essa função vai abrir a tab2 e criar o numero de cadeiras conforme o numero salvo na sala selecionada
         private void SelecionarSala()
         {
+            //Enquanto as salas nao foram criadas e nem configurada estou usando essa variavel para escolher o numero de
+            //cadeiras que serao criadas
             int size = 10;
 
             tableLayoutPanel1.SuspendLayout();
@@ -41,11 +39,8 @@ namespace GestorCinema
                 for (int j = 0; j < size; j++)
                 {
                     Button button = new LugarButton(i, j);
-                    //button.Anchor = AnchorStyles.None;
                     button.Size = new Size(70,50);
                     button.Text = (char)(i + 65) + "" + (j + 1);
-                    //button.BackColor = i % 2 == 0 ? Color.Red : Color.Green;
-                    //button.ForeColor = Color.Black;
                     button.BackgroundImageLayout = ImageLayout.Zoom;
                     button.BackgroundImage = Image.FromFile("C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ProjetoDA\\GestorCinema\\cadeira.png");
                     button.Click += LugarClicked;
@@ -64,19 +59,27 @@ namespace GestorCinema
             return TabAtendimento.TabPages[0];
         }
 
+        //Captura as cordenadas do botao que foi carregado
         private void LugarClicked(Object sender, EventArgs e)
         {
             LugarButton button = (LugarButton)sender;
             MessageBox.Show("X: " + button.X + " Y: " + button.Y);
         }
 
+        //Caso o cliente nao queira usar sua conta
         private void btClienteAnonimo_Click(object sender, EventArgs e)
         {
+            //falta criar variavel que vai armazenar a sala e enviar para o bilhete
+
             SelecionarSala();
         }
 
+        //Caso o cliente queira usar a conta
         private void btSelecionarCliente_Click(object sender, EventArgs e)
         {
+            //falta criar alguma variavel para armazenar o cliente e enviar para o bilhete
+            //falta criar variavel que vai armazenar a sala e enviar para o bilhete
+
             SelecionarSala();
         }
     }

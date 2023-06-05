@@ -1,6 +1,6 @@
 ﻿namespace GestorCinema
 {
-    partial class Informacoes
+    partial class InformacoesForm
     {
         /// <summary>
         /// Required designer variable.

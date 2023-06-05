@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace GestorCinema
 {
-    public partial class Informacoes : Form
+    public partial class FuncionariosForm : Form
     {
-        public GroupBox MyGroupBox { get; set; }
-        public Informacoes()
+        public GroupBox MyGroupBox { get; private set; }
+        public FuncionariosForm()
         {
             InitializeComponent();
-            this.MyGroupBox = groupBox1;
+            //chamar a groupbox no form1
+            this.MyGroupBox = groupBoxFuncionarios;
             this.MyGroupBox.Dock = DockStyle.Fill;
             this.Controls.Add(this.MyGroupBox);
-
         }
 
     }
