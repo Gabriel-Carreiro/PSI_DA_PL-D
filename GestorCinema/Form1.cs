@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,17 +13,18 @@ namespace GestorCinema
 {
     public partial class Form1 : Form
     {
-        private Funcionarios funcionarios;
-        private Clientes clientes;
-        private Informacoes informacoes;
-        private Atendimento atendimento;
-        private Filmes filmes;
-        private Sessoes sessoes;
+        private Funcionarios formFuncionarios;
+        private Clientes formClientes;
+        private Informacoes formInformacoes;
+        private Atendimento formAtendimento;
+        private Filmes formFilmes;
+        private Sessoes formSessoes;
 
+        
         public Form1()
         {
             InitializeComponent();
-            
+
             //temos que fazer com que caso nao esteja logado entre em loop
             /*this.Hide();
             Login login = new Login();
@@ -33,12 +35,12 @@ namespace GestorCinema
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-            if (this.clientes == null)
+            if (this.formClientes == null)
             {
-                this.clientes = new Clientes();
+                this.formClientes = new Clientes();
             }
 
-            GroupBox groupBox = this.clientes.MyGroupBox;
+            GroupBox groupBox = this.formClientes.MyGroupBox;
             groupBox.Parent = this.panel1;
             groupBox.Visible = true;
         }
@@ -46,12 +48,12 @@ namespace GestorCinema
         private void funcionarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-            if (this.funcionarios == null)
+            if (this.formFuncionarios == null)
             {
-                this.funcionarios = new Funcionarios();
+                this.formFuncionarios = new Funcionarios();
             }
 
-            GroupBox groupBox = this.funcionarios.MyGroupBox;
+            GroupBox groupBox = this.formFuncionarios.MyGroupBox;
             groupBox.Parent = this.panel1;
             groupBox.Visible = true;
         }
@@ -59,12 +61,12 @@ namespace GestorCinema
         private void informaçõesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-            if (this.informacoes == null)
+            if (this.formInformacoes == null)
             {
-                this.informacoes = new Informacoes();
+                this.formInformacoes = new Informacoes();
             }
 
-            GroupBox groupBox = this.informacoes.MyGroupBox;
+            GroupBox groupBox = this.formInformacoes.MyGroupBox;
             groupBox.Parent = this.panel1;
             groupBox.Visible = true;
         }
@@ -73,33 +75,33 @@ namespace GestorCinema
         {
             panel1.Controls.Clear();
             
-            if (this.informacoes == null)
+            if (this.formAtendimento == null)
             {
-                this.atendimento = new Atendimento();
+                this.formAtendimento = new Atendimento();
             }
             TabControl tabControl = new TabControl();
             tabControl.Size = panel1.Size;
             this.panel1.Controls.Add(tabControl);
-            TabPage tab = new Atendimento().getPage();
+            Atendimento atendimento = new Atendimento();
+            TabPage tab = atendimento.getPage();
             tabControl.TabPages.Add(tab);
 
             //chamar a segunda tab
-            TabPage tab2 = new Atendimento().TabAtendimento.TabPages[1];
+            TabPage tab2 = atendimento.TabAtendimento.TabPages[0];
             tabControl.TabPages.Add(tab2);
-
-
+            
 
         }
 
         private void filmesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-            if (this.filmes == null)
+            if (this.formFilmes == null)
             {
-                this.filmes = new Filmes();
+                this.formFilmes = new Filmes();
             }
 
-            GroupBox groupBox = this.filmes.MyGroupBox;
+            GroupBox groupBox = this.formFilmes.MyGroupBox;
             groupBox.Parent = this.panel1;
             groupBox.Visible = true;
         }
@@ -107,12 +109,12 @@ namespace GestorCinema
         private void sessõesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-            if (this.sessoes == null)
+            if (this.formSessoes == null)
             {
-                this.sessoes = new Sessoes();
+                this.formSessoes = new Sessoes();
             }
 
-            GroupBox groupBox = this.sessoes.MyGroupBox;
+            GroupBox groupBox = this.formSessoes.MyGroupBox;
             groupBox.Parent = this.panel1;
             groupBox.Visible = true;
         }

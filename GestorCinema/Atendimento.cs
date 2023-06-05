@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,22 +13,22 @@ namespace GestorCinema
 {
     public partial class Atendimento : Form
     {
+
         public Atendimento()
         {
             InitializeComponent();
+
         }
 
         private void tabPage2_Click(object sender, EventArgs e)
         {
-
+            
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void SelecionarSala()
         {
             int size = 10;
-            //TabAtendimento.SelectedTab = tabPage2;
-            //TabAtendimento.Refresh();
-            //tabPage2.SuspendLayout();
+
             tableLayoutPanel1.SuspendLayout();
 
             tableLayoutPanel1.Controls.Clear();
@@ -36,8 +37,6 @@ namespace GestorCinema
             
             for (int i = 0; i < size; i++)
             {
-                //ColumnStyle columnStyle = new ColumnStyle(SizeType.AutoSize);
-                //tableLayoutPanel1.ColumnStyles.Add(columnStyle);
 
                 for (int j = 0; j < size; j++)
                 {
@@ -45,7 +44,7 @@ namespace GestorCinema
                     //button.Anchor = AnchorStyles.None;
                     button.Size = new Size(70,50);
                     button.Text = (char)(i + 65) + "" + (j + 1);
-                    // button.BackColor = i % 2 == 0 ? Color.Red : Color.Green;
+                    //button.BackColor = i % 2 == 0 ? Color.Red : Color.Green;
                     //button.ForeColor = Color.Black;
                     button.BackgroundImageLayout = ImageLayout.Zoom;
                     button.BackgroundImage = Image.FromFile("C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ProjetoDA\\GestorCinema\\cadeira.png");
@@ -53,9 +52,11 @@ namespace GestorCinema
                     tableLayoutPanel1.Controls.Add(button, j, i);
                 }
             }
-
             tableLayoutPanel1.ResumeLayout();
-            //tabPage2.ResumeLayout();
+
+            TabControl control = tabPage1.Parent as TabControl;
+            control.SelectedIndex = 1;
+
         }
 
         internal TabPage getPage()
@@ -69,9 +70,14 @@ namespace GestorCinema
             MessageBox.Show("X: " + button.X + " Y: " + button.Y);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btClienteAnonimo_Click(object sender, EventArgs e)
         {
-            button2_Click(sender, e);
+            SelecionarSala();
+        }
+
+        private void btSelecionarCliente_Click(object sender, EventArgs e)
+        {
+            SelecionarSala();
         }
     }
 }

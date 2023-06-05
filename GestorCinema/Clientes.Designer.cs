@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.gBCliente = new System.Windows.Forms.GroupBox();
+            this.tbId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbNome = new System.Windows.Forms.TextBox();
+            this.tbTelefone = new System.Windows.Forms.TextBox();
+            this.btSalvarCliente = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbMorada = new System.Windows.Forms.TextBox();
+            this.tbNif = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btMostrarTodosClientes = new System.Windows.Forms.Button();
+            this.listViewClientes = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -49,31 +50,20 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button4 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btBuscarCliente = new System.Windows.Forms.Button();
+            this.tbBuscaCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.gBCliente.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.listView2);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.gBCliente);
+            this.groupBox1.Controls.Add(this.btMostrarTodosClientes);
+            this.groupBox1.Controls.Add(this.listViewClientes);
+            this.groupBox1.Controls.Add(this.btBuscarCliente);
+            this.groupBox1.Controls.Add(this.tbBuscaCliente);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(12, 45);
             this.groupBox1.Name = "groupBox1";
@@ -83,108 +73,130 @@
             this.groupBox1.Text = "Clientes";
             this.groupBox1.Visible = false;
             // 
-            // textBox1
+            // gBCliente
             // 
-            this.textBox1.Location = new System.Drawing.Point(126, 142);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(143, 22);
-            this.textBox1.TabIndex = 37;
+            this.gBCliente.Controls.Add(this.tbId);
+            this.gBCliente.Controls.Add(this.label7);
+            this.gBCliente.Controls.Add(this.label1);
+            this.gBCliente.Controls.Add(this.tbNome);
+            this.gBCliente.Controls.Add(this.tbTelefone);
+            this.gBCliente.Controls.Add(this.btSalvarCliente);
+            this.gBCliente.Controls.Add(this.label6);
+            this.gBCliente.Controls.Add(this.label4);
+            this.gBCliente.Controls.Add(this.tbMorada);
+            this.gBCliente.Controls.Add(this.tbNif);
+            this.gBCliente.Controls.Add(this.label5);
+            this.gBCliente.Location = new System.Drawing.Point(26, 97);
+            this.gBCliente.Name = "gBCliente";
+            this.gBCliente.Size = new System.Drawing.Size(402, 267);
+            this.gBCliente.TabIndex = 38;
+            this.gBCliente.TabStop = false;
+            this.gBCliente.Text = "Cliente";
             // 
-            // label1
+            // tbId
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 148);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 16);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Id";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(126, 278);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(279, 22);
-            this.textBox5.TabIndex = 35;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(39, 284);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 16);
-            this.label6.TabIndex = 34;
-            this.label6.Text = "Telefone";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(126, 242);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(279, 22);
-            this.textBox4.TabIndex = 33;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(39, 248);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 16);
-            this.label5.TabIndex = 32;
-            this.label5.Text = "Morada";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(126, 210);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(279, 22);
-            this.textBox3.TabIndex = 31;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(39, 216);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 16);
-            this.label4.TabIndex = 30;
-            this.label4.Text = "NIF";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(331, 317);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Salvar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(126, 178);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(279, 22);
-            this.textBox6.TabIndex = 28;
+            this.tbId.Location = new System.Drawing.Point(100, 44);
+            this.tbId.Name = "tbId";
+            this.tbId.ReadOnly = true;
+            this.tbId.Size = new System.Drawing.Size(143, 22);
+            this.tbId.TabIndex = 37;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(39, 184);
+            this.label7.Location = new System.Drawing.Point(13, 86);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 16);
             this.label7.TabIndex = 27;
             this.label7.Text = "Nome";
             // 
-            // button3
+            // label1
             // 
-            this.button3.Location = new System.Drawing.Point(926, 487);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(138, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Mostrar todos";
-            this.button3.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(18, 16);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Id";
             // 
-            // listView2
+            // tbNome
             // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.tbNome.Location = new System.Drawing.Point(100, 80);
+            this.tbNome.Name = "tbNome";
+            this.tbNome.Size = new System.Drawing.Size(279, 22);
+            this.tbNome.TabIndex = 28;
+            // 
+            // tbTelefone
+            // 
+            this.tbTelefone.Location = new System.Drawing.Point(100, 180);
+            this.tbTelefone.Name = "tbTelefone";
+            this.tbTelefone.Size = new System.Drawing.Size(279, 22);
+            this.tbTelefone.TabIndex = 35;
+            // 
+            // btSalvarCliente
+            // 
+            this.btSalvarCliente.Location = new System.Drawing.Point(305, 219);
+            this.btSalvarCliente.Name = "btSalvarCliente";
+            this.btSalvarCliente.Size = new System.Drawing.Size(75, 23);
+            this.btSalvarCliente.TabIndex = 29;
+            this.btSalvarCliente.Text = "Salvar";
+            this.btSalvarCliente.UseVisualStyleBackColor = true;
+            this.btSalvarCliente.Click += new System.EventHandler(this.btSalvarCliente_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 186);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 16);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "Telefone";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 118);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 16);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "NIF";
+            // 
+            // tbMorada
+            // 
+            this.tbMorada.Location = new System.Drawing.Point(100, 144);
+            this.tbMorada.Name = "tbMorada";
+            this.tbMorada.Size = new System.Drawing.Size(279, 22);
+            this.tbMorada.TabIndex = 33;
+            // 
+            // tbNif
+            // 
+            this.tbNif.Location = new System.Drawing.Point(100, 112);
+            this.tbNif.Name = "tbNif";
+            this.tbNif.Size = new System.Drawing.Size(279, 22);
+            this.tbNif.TabIndex = 31;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 150);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 16);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Morada";
+            // 
+            // btMostrarTodosClientes
+            // 
+            this.btMostrarTodosClientes.Location = new System.Drawing.Point(926, 474);
+            this.btMostrarTodosClientes.Name = "btMostrarTodosClientes";
+            this.btMostrarTodosClientes.Size = new System.Drawing.Size(138, 23);
+            this.btMostrarTodosClientes.TabIndex = 6;
+            this.btMostrarTodosClientes.Text = "Mostrar todos";
+            this.btMostrarTodosClientes.UseVisualStyleBackColor = true;
+            this.btMostrarTodosClientes.Click += new System.EventHandler(this.btMostrarTodosClientes_Click);
+            // 
+            // listViewClientes
+            // 
+            this.listViewClientes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
@@ -192,13 +204,13 @@
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7});
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(451, 72);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(613, 380);
-            this.listView2.TabIndex = 5;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
+            this.listViewClientes.HideSelection = false;
+            this.listViewClientes.Location = new System.Drawing.Point(451, 72);
+            this.listViewClientes.Name = "listViewClientes";
+            this.listViewClientes.Size = new System.Drawing.Size(613, 380);
+            this.listViewClientes.TabIndex = 5;
+            this.listViewClientes.UseCompatibleStateImageBehavior = false;
+            this.listViewClientes.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -235,43 +247,31 @@
             this.columnHeader7.Text = "Total gasto";
             this.columnHeader7.Width = 85;
             // 
-            // button4
+            // btBuscarCliente
             // 
-            this.button4.Location = new System.Drawing.Point(968, 33);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(81, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Buscar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btBuscarCliente.Location = new System.Drawing.Point(857, 32);
+            this.btBuscarCliente.Name = "btBuscarCliente";
+            this.btBuscarCliente.Size = new System.Drawing.Size(81, 23);
+            this.btBuscarCliente.TabIndex = 4;
+            this.btBuscarCliente.Text = "Buscar";
+            this.btBuscarCliente.UseVisualStyleBackColor = true;
+            this.btBuscarCliente.Click += new System.EventHandler(this.btBuscarCliente_Click);
             // 
-            // comboBox2
+            // tbBuscaCliente
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Id do Cliente",
-            "Nome",
-            "NIF",
-            "Telefone"});
-            this.comboBox2.Location = new System.Drawing.Point(552, 31);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(131, 24);
-            this.comboBox2.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(683, 33);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(285, 22);
-            this.textBox2.TabIndex = 1;
+            this.tbBuscaCliente.Location = new System.Drawing.Point(542, 33);
+            this.tbBuscaCliente.Name = "tbBuscaCliente";
+            this.tbBuscaCliente.Size = new System.Drawing.Size(285, 22);
+            this.tbBuscaCliente.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(459, 36);
+            this.label2.Location = new System.Drawing.Point(448, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 16);
+            this.label2.Size = new System.Drawing.Size(68, 16);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Pesquisar por";
+            this.label2.Text = "Pesquisar";
             // 
             // Clientes
             // 
@@ -283,6 +283,8 @@
             this.Text = "Clientes";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.gBCliente.ResumeLayout(false);
+            this.gBCliente.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -290,8 +292,8 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.Button btMostrarTodosClientes;
+        private System.Windows.Forms.ListView listViewClientes;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -299,20 +301,20 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btBuscarCliente;
+        private System.Windows.Forms.TextBox tbBuscaCliente;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbId;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbTelefone;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbMorada;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbNif;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Button btSalvarCliente;
+        private System.Windows.Forms.TextBox tbNome;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox gBCliente;
     }
 }
