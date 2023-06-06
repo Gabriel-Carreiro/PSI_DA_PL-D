@@ -20,6 +20,7 @@ namespace GestorCinema
         }
 
         public Categoria() { }
+
     }
 
 }
