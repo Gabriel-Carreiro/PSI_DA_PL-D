@@ -38,14 +38,27 @@ namespace GestorCinema
             //Limpar painel
             clearPanel();
 
+            //Se o formulário clientes ainda não foi aberto
             if (this.formClientes == null)
             {
+                //Instanciar o formulário de clientes
                 this.formClientes = new ClientesForm();
             }
-
+            
+            //Instancia GroupBox que irá corresponder ao GroupBox do formulário Clientes
             GroupBox groupBox = this.formClientes.MyGroupBox;
+
+            //Definir o "Parent Container" da GroupBox - corresponde ao panel1
             groupBox.Parent = this.panel1;
+
+            //Tornar a GroupBox visível
             groupBox.Visible = true;
+
+            /* Fazemos isto para utilizar sempre a janela do Form1.
+             * Ou seja, quando carregarmos na opção Clientes
+             * Estaremos a colocar o formulário Clientes na GroupBox
+             * Que por sua vez será apresentada na janela do Form1.
+            */
         }
 
         private void funcionarioToolStripMenuItem_Click(object sender, EventArgs e)

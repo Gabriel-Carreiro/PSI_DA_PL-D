@@ -57,52 +57,52 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationContext.cs" />
-    <Compile Include="AtendimentoForm.cs">
+    <Compile Include="Forms\AtendimentoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AtendimentoForm.Designer.cs">
+    <Compile Include="Forms\AtendimentoForm.Designer.cs">
       <DependentUpon>AtendimentoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Bilhete.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="Cinema.cs" />
     <Compile Include="Cliente.cs" />
-    <Compile Include="ClientesForm.cs">
+    <Compile Include="Forms\ClientesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientesForm.Designer.cs">
+    <Compile Include="Forms\ClientesForm.Designer.cs">
       <DependentUpon>ClientesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Filme.cs" />
-    <Compile Include="FilmesForm.cs">
+    <Compile Include="Forms\FilmesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FilmesForm.Designer.cs">
+    <Compile Include="Forms\FilmesForm.Designer.cs">
       <DependentUpon>FilmesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Funcionario.cs" />
-    <Compile Include="FuncionariosForm.cs">
+    <Compile Include="Forms\FuncionariosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FuncionariosForm.Designer.cs">
+    <Compile Include="Forms\FuncionariosForm.Designer.cs">
       <DependentUpon>FuncionariosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InformacoesForm.cs">
+    <Compile Include="Forms\InformacoesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InformacoesForm.Designer.cs">
+    <Compile Include="Forms\InformacoesForm.Designer.cs">
       <DependentUpon>InformacoesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LugarButton.cs">
@@ -113,31 +113,31 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sala.cs" />
     <Compile Include="Sessao.cs" />
-    <Compile Include="SessoesForm.cs">
+    <Compile Include="Forms\SessoesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SessoesForm.Designer.cs">
+    <Compile Include="Forms\SessoesForm.Designer.cs">
       <DependentUpon>SessoesForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AtendimentoForm.resx">
+    <EmbeddedResource Include="Forms\AtendimentoForm.resx">
       <DependentUpon>AtendimentoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientesForm.resx">
+    <EmbeddedResource Include="Forms\ClientesForm.resx">
       <DependentUpon>ClientesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FilmesForm.resx">
+    <EmbeddedResource Include="Forms\FilmesForm.resx">
       <DependentUpon>FilmesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FuncionariosForm.resx">
+    <EmbeddedResource Include="Forms\FuncionariosForm.resx">
       <DependentUpon>FuncionariosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InformacoesForm.resx">
+    <EmbeddedResource Include="Forms\InformacoesForm.resx">
       <DependentUpon>InformacoesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -149,7 +149,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SessoesForm.resx">
+    <EmbeddedResource Include="Forms\SessoesForm.resx">
       <DependentUpon>SessoesForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
