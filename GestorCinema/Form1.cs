@@ -32,9 +32,12 @@ namespace GestorCinema
             this.Show(); */
         }
 
+        /* Opção no menu para Clientes */
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            panel1.Controls.Clear();
+            //Limpar painel
+            clearPanel();
+
             if (this.formClientes == null)
             {
                 this.formClientes = new ClientesForm();
@@ -47,7 +50,7 @@ namespace GestorCinema
 
         private void funcionarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            panel1.Controls.Clear();
+            clearPanel();
             if (this.formFuncionarios == null)
             {
                 this.formFuncionarios = new FuncionariosForm();
@@ -60,7 +63,7 @@ namespace GestorCinema
 
         private void informaçõesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            panel1.Controls.Clear();
+            clearPanel();
             if (this.formInformacoes == null)
             {
                 this.formInformacoes = new InformacoesForm();
@@ -73,8 +76,8 @@ namespace GestorCinema
 
         private void atendimentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            panel1.Controls.Clear();
-            
+            clearPanel();
+
             if (this.formAtendimento == null)
             {
                 this.formAtendimento = new AtendimentoForm();
@@ -95,7 +98,7 @@ namespace GestorCinema
 
         private void filmesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            panel1.Controls.Clear();
+            clearPanel();
             if (this.formFilmes == null)
             {
                 this.formFilmes = new FilmesForm();
@@ -108,7 +111,7 @@ namespace GestorCinema
 
         private void sessõesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            panel1.Controls.Clear();
+            clearPanel();
             if (this.formSessoes == null)
             {
                 this.formSessoes = new SessoesForm();
@@ -122,6 +125,12 @@ namespace GestorCinema
         private void sairToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        /* Método para limpar os controlos do painel 1 */
+        private void clearPanel()
+        {
+            panel1.Controls.Clear();
         }
     }
 }
