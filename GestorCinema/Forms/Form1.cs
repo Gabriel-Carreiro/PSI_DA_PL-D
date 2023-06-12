@@ -32,7 +32,11 @@ namespace GestorCinema
             this.Show(); */
         }
 
-        /* Opção no menu para Clientes */
+        /* Fazemos isto para utilizar sempre a janela do Form1.
+         * Ou seja, quando carregarmos na opção Clientes
+         * Estaremos a colocar o formulário Clientes na GroupBox
+         * Que por sua vez será apresentada na janela do Form1.
+        */
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Limpar painel
@@ -53,12 +57,6 @@ namespace GestorCinema
 
             //Tornar a GroupBox visível
             groupBox.Visible = true;
-
-            /* Fazemos isto para utilizar sempre a janela do Form1.
-             * Ou seja, quando carregarmos na opção Clientes
-             * Estaremos a colocar o formulário Clientes na GroupBox
-             * Que por sua vez será apresentada na janela do Form1.
-            */
         }
 
         private void funcionarioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -95,18 +93,29 @@ namespace GestorCinema
             {
                 this.formAtendimento = new AtendimentoForm();
             }
+
+            //Criar um controlodador Tab
             TabControl tabControl = new TabControl();
+
+            //Definir o tamanho da tab - igual ao tamanho do panel1
             tabControl.Size = panel1.Size;
+
+            //Adicionar controlador ao container - o tab
             this.panel1.Controls.Add(tabControl);
+
+            //Abrir formulário de atendimento
             AtendimentoForm atendimento = new AtendimentoForm();
+
+            //Definir página da tab - pela página do formulário
             TabPage tab = atendimento.getPage();
+
+            //Adicionar a tab do formulário de atendimento no controlador Tab
             tabControl.TabPages.Add(tab);
 
+            /*
             //chamar a segunda tab
             TabPage tab2 = atendimento.TabAtendimento.TabPages[0];
-            tabControl.TabPages.Add(tab2);
-            
-
+            tabControl.TabPages.Add(tab2);*/
         }
 
         private void filmesToolStripMenuItem1_Click(object sender, EventArgs e)

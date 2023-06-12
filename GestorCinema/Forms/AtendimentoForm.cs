@@ -42,7 +42,7 @@ namespace GestorCinema
                     button.Size = new Size(70,50);
                     button.Text = (char)(i + 65) + "" + (j + 1);
                     button.BackgroundImageLayout = ImageLayout.Zoom;
-                    button.BackgroundImage = Image.FromFile("C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ProjetoDA\\GestorCinema\\cadeira.png");
+                    button.BackgroundImage = Image.FromFile("E:\\OneDrive - IPLeiria\\1º Ano\\S2\\Desenvolvimento de Aplicações\\Projeto\\ProjetoDA\\GestorCinema\\cadeira.png");
                     button.Click += LugarClicked;
                     tableLayoutPanel1.Controls.Add(button, j, i);
                 }
