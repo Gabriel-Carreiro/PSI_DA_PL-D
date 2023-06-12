@@ -15,6 +15,8 @@ namespace GestorCinema
     {
         public GroupBox MyGroupBox { get; private set; }
         ApplicationContext applicationContext;
+
+        //Lista de clientes
         List<Cliente> clientes;
 
         public ClientesForm()
@@ -97,6 +99,8 @@ namespace GestorCinema
                 listViewClientes.Items.Add(listViewItem);
             }
         }
+
+        //Método para limpar o formulário de clientes
         private void LimparFormulario()
         {
             tbId.Text = string.Empty;
@@ -105,6 +109,7 @@ namespace GestorCinema
             tbNif.Text = string.Empty;
             tbTelefone.Text = string.Empty;
         }
+        //Método para limpar a lista de Clientes
         private void LimparListView()
         {
             while (listViewClientes.Items.Count > 0)
