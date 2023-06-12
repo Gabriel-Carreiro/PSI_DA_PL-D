@@ -29,9 +29,11 @@ namespace GestorCinema
             applicationContext = new ApplicationContext();
             //Criar lista de filmes
             filmes = new List<Filme>();
+            //Criar lista de categorias
             categorias = new List<Categoria>();
             //Pegar da base de dados na tabela Filmes adicionar a lista
             filmes = applicationContext.Filmes.ToList();
+            //Colocar categorias que estão em BD na lista
             categorias = applicationContext.Categorias.ToList();
 
 
@@ -64,7 +66,7 @@ namespace GestorCinema
 
             filme.Categoria = categorias[cbCategoriaFilme.SelectedIndex];
             
-            MessageBox.Show("Filme cadastrado!");
+            MessageBox.Show("Filme registado!");
 
             //adiciona o filme a lista filmes
             filmes.Add(filme);

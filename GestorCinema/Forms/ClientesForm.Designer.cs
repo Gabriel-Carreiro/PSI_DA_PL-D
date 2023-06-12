@@ -131,14 +131,14 @@
             this.tbTelefone.Location = new System.Drawing.Point(100, 180);
             this.tbTelefone.Name = "tbTelefone";
             this.tbTelefone.Size = new System.Drawing.Size(279, 22);
-            this.tbTelefone.TabIndex = 35;
+            this.tbTelefone.TabIndex = 31;
             // 
             // btSalvarCliente
             // 
             this.btSalvarCliente.Location = new System.Drawing.Point(305, 219);
             this.btSalvarCliente.Name = "btSalvarCliente";
             this.btSalvarCliente.Size = new System.Drawing.Size(75, 23);
-            this.btSalvarCliente.TabIndex = 29;
+            this.btSalvarCliente.TabIndex = 32;
             this.btSalvarCliente.Text = "Salvar";
             this.btSalvarCliente.UseVisualStyleBackColor = true;
             this.btSalvarCliente.Click += new System.EventHandler(this.btSalvarCliente_Click);
@@ -166,14 +166,14 @@
             this.tbMorada.Location = new System.Drawing.Point(100, 144);
             this.tbMorada.Name = "tbMorada";
             this.tbMorada.Size = new System.Drawing.Size(279, 22);
-            this.tbMorada.TabIndex = 33;
+            this.tbMorada.TabIndex = 30;
             // 
             // tbNif
             // 
             this.tbNif.Location = new System.Drawing.Point(100, 112);
             this.tbNif.Name = "tbNif";
             this.tbNif.Size = new System.Drawing.Size(279, 22);
-            this.tbNif.TabIndex = 31;
+            this.tbNif.TabIndex = 29;
             // 
             // label5
             // 
@@ -273,13 +273,13 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Pesquisar";
             // 
-            // Clientes
+            // ClientesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1116, 569);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Clientes";
+            this.Name = "ClientesForm";
             this.Text = "Clientes";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
