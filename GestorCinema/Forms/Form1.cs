@@ -154,5 +154,10 @@ namespace GestorCinema
         {
             panel1.Controls.Clear();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
