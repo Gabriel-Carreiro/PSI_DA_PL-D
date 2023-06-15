@@ -30,6 +30,8 @@ namespace GestorCinema
             Login login = new Login();
             login.ShowDialog();
             this.Show(); */
+
+            ApplicationContext context = new ApplicationContext();
         }
 
         /* Fazemos isto para utilizar sempre a janela do Form1.
