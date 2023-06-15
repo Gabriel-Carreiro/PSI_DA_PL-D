@@ -17,6 +17,7 @@ namespace GestorCinema
         ApplicationContext applicationContext;
         List<Filme> filmes;
         List<Categoria> categorias;
+        List<Categoria> categorias_ativas;
         public FilmesForm()
         {
             InitializeComponent();
@@ -33,19 +34,30 @@ namespace GestorCinema
             categorias = new List<Categoria>();
             //Pegar da base de dados na tabela Filmes adicionar a lista
             filmes = applicationContext.Filmes.ToList();
-            //Colocar categorias que estão em BD na lista
-            categorias = applicationContext.Categorias.ToList();
 
-
+            atualizarCategorias();
             //Pegar as categorias existentes e inserir nas ComboBox do formulario
             comboBox1.DisplayMember = "Nome";
             comboBox1.DataSource = new List<Categoria>(categorias);
             comboBox1.SelectedIndex = -1;
             cbCategoriaFilme.DisplayMember = "Nome";
-            cbCategoriaFilme.DataSource = new List<Categoria>(categorias);
+            //cbCategoriaFilme.DataSource = new List<Categoria>(categorias_ativas);
             cbCategoriaFilme.SelectedIndex = -1;
             btAlterarFilme.Visible = false;
+            
 
+        }
+
+        private void atualizarCategorias()
+        {
+            //Colocar categorias que estão em BD na lista
+            categorias = applicationContext.Categorias.ToList();
+            //Criar lista de categorias ativas
+            categorias_ativas = new List<Categoria>();
+            //Colocar categorias ativas numa lista - Estado = true
+            categorias_ativas = categorias.FindAll(categoria => categoria.Estado).ToList();
+            //Colocar categorias ativas na ComboBox
+            cbCategoriaFilme.DataSource = new List<Categoria>(categorias_ativas);
         }
 
         private void btAdicionarFilme_Click(object sender, EventArgs e)
@@ -103,12 +115,13 @@ namespace GestorCinema
                     }
                     else
                     {
-                        categoria.Estado = false;
+                        categoria.Estado = true;
                         btAlterarEstadoCategoria.Text = "Desativar";
                     }
                 }
             }
             applicationContext.SaveChanges();
+            atualizarCategorias();
         }
 
         private void btMostarTodosFilmes_Click(object sender, EventArgs e)
