@@ -62,7 +62,7 @@ namespace GestorCinema
 
         private void btAdicionarFilme_Click(object sender, EventArgs e)
         {
-            Filme filme = new Filme(tbNomeFilme.Text,tbDuracaoFilme.Text, categorias[cbCategoriaFilme.SelectedIndex]);
+            Filme filme = new Filme(tbNomeFilme.Text,tbDuracaoFilme.Text, categorias_ativas[cbCategoriaFilme.SelectedIndex]);
             
             string estado = cbEstadoFilme.SelectedItem as string;
             if (estado == "Ativo")
