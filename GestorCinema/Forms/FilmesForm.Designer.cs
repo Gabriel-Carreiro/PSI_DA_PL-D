@@ -292,6 +292,7 @@
             this.listViewFilmes.FullRowSelect = true;
             this.listViewFilmes.HideSelection = false;
             this.listViewFilmes.Location = new System.Drawing.Point(375, 130);
+            this.listViewFilmes.MultiSelect = false;
             this.listViewFilmes.Name = "listViewFilmes";
             this.listViewFilmes.Size = new System.Drawing.Size(688, 365);
             this.listViewFilmes.TabIndex = 5;

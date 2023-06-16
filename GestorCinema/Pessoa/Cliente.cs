@@ -8,8 +8,6 @@ namespace GestorCinema
 {
     internal class Cliente : Pessoa
     {
-        public string Nif { get; set; }
-        public string Telefone { get; set; }
         public int BilhetesAdiquiridos { get; set; }
         public int TotalGasto { get; set; }
 

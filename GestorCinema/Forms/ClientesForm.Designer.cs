@@ -53,6 +53,7 @@
             this.btBuscarCliente = new System.Windows.Forms.Button();
             this.tbBuscaCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btAtualizarCliente = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gBCliente.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +76,7 @@
             // 
             // gBCliente
             // 
+            this.gBCliente.Controls.Add(this.btAtualizarCliente);
             this.gBCliente.Controls.Add(this.tbId);
             this.gBCliente.Controls.Add(this.label7);
             this.gBCliente.Controls.Add(this.label1);
@@ -135,7 +137,7 @@
             // 
             // btSalvarCliente
             // 
-            this.btSalvarCliente.Location = new System.Drawing.Point(305, 219);
+            this.btSalvarCliente.Location = new System.Drawing.Point(304, 218);
             this.btSalvarCliente.Name = "btSalvarCliente";
             this.btSalvarCliente.Size = new System.Drawing.Size(75, 23);
             this.btSalvarCliente.TabIndex = 32;
@@ -204,13 +206,16 @@
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7});
+            this.listViewClientes.FullRowSelect = true;
             this.listViewClientes.HideSelection = false;
             this.listViewClientes.Location = new System.Drawing.Point(451, 72);
+            this.listViewClientes.MultiSelect = false;
             this.listViewClientes.Name = "listViewClientes";
             this.listViewClientes.Size = new System.Drawing.Size(613, 380);
             this.listViewClientes.TabIndex = 5;
             this.listViewClientes.UseCompatibleStateImageBehavior = false;
             this.listViewClientes.View = System.Windows.Forms.View.Details;
+            this.listViewClientes.SelectedIndexChanged += new System.EventHandler(this.listViewClientes_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -273,6 +278,16 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Pesquisar";
             // 
+            // btAtualizarCliente
+            // 
+            this.btAtualizarCliente.Location = new System.Drawing.Point(223, 218);
+            this.btAtualizarCliente.Name = "btAtualizarCliente";
+            this.btAtualizarCliente.Size = new System.Drawing.Size(75, 23);
+            this.btAtualizarCliente.TabIndex = 38;
+            this.btAtualizarCliente.Text = "Atualizar";
+            this.btAtualizarCliente.UseVisualStyleBackColor = true;
+            this.btAtualizarCliente.Click += new System.EventHandler(this.btAtualizarCliente_Click);
+            // 
             // ClientesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -316,5 +331,6 @@
         private System.Windows.Forms.TextBox tbNome;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox gBCliente;
+        private System.Windows.Forms.Button btAtualizarCliente;
     }
 }

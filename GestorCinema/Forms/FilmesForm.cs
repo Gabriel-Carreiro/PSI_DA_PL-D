@@ -62,9 +62,7 @@ namespace GestorCinema
 
         private void btAdicionarFilme_Click(object sender, EventArgs e)
         {
-            Filme filme = new Filme();
-            filme.Nome = tbNomeFilme.Text;
-            filme.Duracao = tbDuracaoFilme.Text;
+            Filme filme = new Filme(tbNomeFilme.Text,tbDuracaoFilme.Text, categorias[cbCategoriaFilme.SelectedIndex]);
             
             string estado = cbEstadoFilme.SelectedItem as string;
             if (estado == "Ativo")
@@ -76,7 +74,6 @@ namespace GestorCinema
                 filme.Estado = false;
             }
 
-            filme.Categoria = categorias[cbCategoriaFilme.SelectedIndex];
             
             MessageBox.Show("Filme registado!");
 
@@ -85,6 +82,7 @@ namespace GestorCinema
             //adiciona o filme a base de dados
             applicationContext.Filmes.Add(filme);
             applicationContext.SaveChanges();
+            LimparListView();
 
         }
 
@@ -133,7 +131,16 @@ namespace GestorCinema
                 listViewItem.SubItems.Add(item.Nome);
                 listViewItem.SubItems.Add(item.Duracao);
                 listViewItem.SubItems.Add(item.Categoria.Nome);
-                listViewItem.SubItems.Add(item.Estado.ToString());
+                string estado = item.Estado.ToString();
+                if (estado == "True")
+                {
+                    estado = "Ativo";
+                }
+                else
+                {
+                    estado = "Desativo";
+                }
+                listViewItem.SubItems.Add(estado);
 
                 listViewFilmes.Items.Add(listViewItem);
             }
@@ -226,8 +233,9 @@ namespace GestorCinema
 
             MessageBox.Show("Filme alterado!");
 
-            //adiciona o filme a base de dados
+            //atualizar o filme na base de dados
             applicationContext.SaveChanges();
+            LimparListView();
         }
     }
 }

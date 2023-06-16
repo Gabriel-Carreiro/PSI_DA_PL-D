@@ -38,16 +38,23 @@ namespace GestorCinema
 
         private void btSalvarCliente_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente();
-            cliente.Nome = tbNome.Text;
-            cliente.Morada = tbMorada.Text;
-            cliente.Telefone = tbTelefone.Text;
-            cliente.Nif = tbNif.Text;
+            //Comparar o nif digitado com os clientes já cadastrados e retorna true caso o nif esteja em uso
+            bool clienteEncontrado = clientes.Exists(cliente =>
+                cliente.Nif.Equals(tbNif.Text)
+            );
+            if (clienteEncontrado)
+            {
+                MessageBox.Show("Nif já cadastrado");
+                return;
+            }
+
+            // Cria o cliente usando o construtor
+            Cliente clienteNovo = new Cliente(tbNome.Text, tbMorada.Text, tbNif.Text, tbTelefone.Text);
 
             //adiciona o cliente a lista clientes
-            clientes.Add(cliente);
+            clientes.Add(clienteNovo);
             //adiciona o cliente a base de dados
-            applicationContext.Pessoas.Add(cliente);
+            applicationContext.Pessoas.Add(clienteNovo);
             applicationContext.SaveChanges();
             MessageBox.Show("cliente salvo");
             LimparFormulario();
@@ -118,5 +125,67 @@ namespace GestorCinema
             }
         }
 
+        private void listViewClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //verificar se existe algum item selecionado
+            if (listViewClientes.SelectedItems.Count > 0)
+            {
+                btSalvarCliente.Visible = false;
+                btAtualizarCliente.Visible = true;
+                //acessar o item selecionado
+                ListViewItem selectedItem = listViewClientes.SelectedItems[0];
+
+                tbId.Text = selectedItem.SubItems[0].Text;
+                tbNome.Text = selectedItem.SubItems[1].Text;
+                tbNif.Text = selectedItem.SubItems[2].Text;
+                tbTelefone.Text = selectedItem.SubItems[3].Text;
+                tbMorada.Text = selectedItem.SubItems[4].Text;
+            }
+            else
+            {
+                // Limpa a label se nenhum item estiver selecionado
+                LimparFormulario();
+                btSalvarCliente.Visible = true;
+                btAtualizarCliente.Visible = false;
+            }
+        }
+
+        private void btAtualizarCliente_Click(object sender, EventArgs e)
+        {
+
+            //Busca o cliente selecionado na lista de clientes
+            Cliente clienteEncontrado = clientes.Find(cliente =>
+                cliente.Id.ToString().Equals(tbId.Text)
+            );
+
+            clienteEncontrado.Nome = tbNome.Text;
+            clienteEncontrado.Telefone = tbTelefone.Text;
+            clienteEncontrado.Morada = tbMorada.Text;
+            // Confere se o nif antigo é igual ao novo, caso seja igual nao faz nada
+            if(clienteEncontrado.Nif != tbNif.Text)
+            {
+                //Comparar o nif digitado com os clientes já cadastrados e retorna true caso o nif esteja em uso
+                bool clienteRepetido = clientes.Exists(cliente =>
+                    cliente.Nif.Equals(tbNif.Text)
+                );
+                // Caso tenha um cliente com o mesmo nif apresenta mensagem de erro
+                if (clienteRepetido)
+                {
+                    MessageBox.Show("Nif já cadastrado");
+                    return;
+                }
+                // Caso nao tenha cliente com o mesmo nif atualiza o valor
+                else
+                {
+                    clienteEncontrado.Nif = tbNif.Text;
+                }
+            }
+            
+            MessageBox.Show("Cliente alterado!");
+
+            //atualizar o cliente na base de dados
+            applicationContext.SaveChanges();
+            LimparListView();
+        }
     }
 }
