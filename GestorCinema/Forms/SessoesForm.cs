@@ -39,18 +39,7 @@ namespace GestorCinema
             LimparListView();
 
             //Colocar filmes ativos na listView
-            foreach(Filme filme in filmes)
-            {
-                ListViewItem item = new ListViewItem(filme.Id.ToString());
-                item.SubItems.Add(filme.Nome);
-                item.SubItems.Add(filme.Duracao);
-                item.SubItems.Add(filme.Categoria.Nome);
-                item.SubItems.Add(converter_estado(filme.Estado));
-
-                //Adicionar filme da listView
-                //id, nome, duração e categoria são subitems do item filme
-                list_films.Items.Add(item);
-            }
+            insert_films(filmes);
         }
 
         //Método para limpar ListView de filmes
@@ -77,6 +66,52 @@ namespace GestorCinema
                     MessageBox.Show("Estado inválido!");
                     return null;
                     break;
+            }
+        }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            LimparListView();
+
+            string search = search_by.SelectedItem.ToString();
+            string search_for = txt_search.Text;
+            List<Filme> found_films = new List<Filme>();
+
+            switch (search)
+            {
+                case "Id do Filme":
+                    found_films = filmes.FindAll(filme => filme.Id == int.Parse(search_for));
+                    break;
+                case "Nome":
+                    found_films = filmes.FindAll(filme => filme.Nome == search_for);
+                    break;
+                case "Categoria":
+                    found_films = filmes.FindAll(filme => filme.Categoria.Nome == search_for);
+                    break;
+                default:
+                    MessageBox.Show("Opção inválida!");
+                    LimparListView();
+                    break;
+            }
+
+            insert_films(found_films);
+        }
+
+        //Método para adicionar filmes à listView
+        private void insert_films(List<Filme> films_insert)
+        {
+            //Colocar filmes ativos na listView
+            foreach (Filme filme in films_insert)
+            {
+                ListViewItem item = new ListViewItem(filme.Id.ToString());
+                item.SubItems.Add(filme.Nome);
+                item.SubItems.Add(filme.Duracao);
+                item.SubItems.Add(filme.Categoria.Nome);
+                item.SubItems.Add(converter_estado(filme.Estado));
+
+                //Adicionar filme da listView
+                //id, nome, duração e categoria são subitems do item filme
+                list_films.Items.Add(item);
             }
         }
     }

@@ -38,8 +38,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_showall = new System.Windows.Forms.Button();
             this.btn_search = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.search_by = new System.Windows.Forms.ComboBox();
+            this.txt_search = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.list_films = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -58,8 +58,8 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btn_showall);
             this.groupBox1.Controls.Add(this.btn_search);
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.search_by);
+            this.groupBox1.Controls.Add(this.txt_search);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.list_films);
             this.groupBox1.Location = new System.Drawing.Point(9, 33);
@@ -77,7 +77,7 @@
             this.btn_create.Margin = new System.Windows.Forms.Padding(2);
             this.btn_create.Name = "btn_create";
             this.btn_create.Size = new System.Drawing.Size(84, 19);
-            this.btn_create.TabIndex = 27;
+            this.btn_create.TabIndex = 6;
             this.btn_create.Text = "Criar Sessão";
             this.btn_create.UseVisualStyleBackColor = true;
             // 
@@ -120,7 +120,7 @@
             this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(95, 21);
-            this.comboBox1.TabIndex = 25;
+            this.comboBox1.TabIndex = 4;
             // 
             // label1
             // 
@@ -138,7 +138,7 @@
             this.btn_showall.Margin = new System.Windows.Forms.Padding(2);
             this.btn_showall.Name = "btn_showall";
             this.btn_showall.Size = new System.Drawing.Size(84, 19);
-            this.btn_showall.TabIndex = 23;
+            this.btn_showall.TabIndex = 5;
             this.btn_showall.Text = "Mostrar todos";
             this.btn_showall.UseVisualStyleBackColor = true;
             this.btn_showall.Click += new System.EventHandler(this.btn_showall_Click);
@@ -149,31 +149,31 @@
             this.btn_search.Margin = new System.Windows.Forms.Padding(2);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(56, 19);
-            this.btn_search.TabIndex = 22;
+            this.btn_search.TabIndex = 3;
             this.btn_search.Text = "Buscar";
             this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
-            // comboBox3
+            // search_by
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Id do Cliente",
+            this.search_by.FormattingEnabled = true;
+            this.search_by.Items.AddRange(new object[] {
+            "Id do Filme",
             "Nome",
-            "NIF",
-            "Telefone"});
-            this.comboBox3.Location = new System.Drawing.Point(79, 45);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(95, 21);
-            this.comboBox3.TabIndex = 21;
+            "Categoria"});
+            this.search_by.Location = new System.Drawing.Point(79, 45);
+            this.search_by.Margin = new System.Windows.Forms.Padding(2);
+            this.search_by.Name = "search_by";
+            this.search_by.Size = new System.Drawing.Size(95, 21);
+            this.search_by.TabIndex = 1;
             // 
-            // textBox3
+            // txt_search
             // 
-            this.textBox3.Location = new System.Drawing.Point(177, 46);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(210, 20);
-            this.textBox3.TabIndex = 20;
+            this.txt_search.Location = new System.Drawing.Point(177, 46);
+            this.txt_search.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(210, 20);
+            this.txt_search.TabIndex = 2;
             // 
             // label5
             // 
@@ -210,7 +210,7 @@
             // Nome
             // 
             this.Nome.Text = "Nome";
-            this.Nome.Width = 308;
+            this.Nome.Width = 171;
             // 
             // columnHeader8
             // 
@@ -250,8 +250,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_showall;
         private System.Windows.Forms.Button btn_search;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox search_by;
+        private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListView list_films;
         private System.Windows.Forms.ColumnHeader columnHeader1;
