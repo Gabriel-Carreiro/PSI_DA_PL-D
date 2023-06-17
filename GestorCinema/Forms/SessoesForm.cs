@@ -15,6 +15,7 @@ namespace GestorCinema
         public GroupBox MyGroupBox { get; internal set; }
 
         private ApplicationContext applicationContext;
+        private Cinema cinema;
         private List<Filme> filmes;
         private List<Categoria> categorias;
         private List<Sala> salas;
@@ -27,8 +28,11 @@ namespace GestorCinema
             this.MyGroupBox.Dock = DockStyle.Fill;
             this.Controls.Add(this.MyGroupBox);
             applicationContext = new ApplicationContext();
-            //Criar lista de salas do cinema
+            //Criar lista de salas
             salas = applicationContext.Salas.ToList();
+            //Criar lista de salas do cinema em utilização
+            cinema = applicationContext.Cinema.First();
+            salas = cinema.Salas;
             //Criar lista para caregorias
             categorias = applicationContext.Categorias.ToList();
             //Criar lista para filmes em exibição

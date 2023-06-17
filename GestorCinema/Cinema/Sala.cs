@@ -20,5 +20,6 @@ namespace GestorCinema
             Filas = filas;
         }
 
+        public Sala() { }
     }
 }
