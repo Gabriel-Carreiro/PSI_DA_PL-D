@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace GestorCinema
 {
-    public partial class Form1 : Form
+    public partial class PrincipalForm : Form
     {
         private FuncionariosForm formFuncionarios;
         private ClientesForm formClientes;
@@ -21,9 +21,19 @@ namespace GestorCinema
         private SessoesForm formSessoes;
 
         
-        public Form1()
+        public PrincipalForm()
         {
             InitializeComponent();
+
+            // Verificar se o banco de dados já existe
+            if (!DatabaseExists())
+            {
+                // Criar o banco de dados
+                CreateDatabase();
+
+                // Inserir as informações iniciais
+                InsertInitialData();
+            }
 
             //temos que fazer com que caso nao esteja logado entre em loop
             /* this.Hide();
@@ -31,7 +41,49 @@ namespace GestorCinema
             login.ShowDialog();
             this.Show(); */
 
-            ApplicationContext context = new ApplicationContext();
+            //ApplicationContext context = new ApplicationContext();
+        }
+        private bool DatabaseExists()
+        {
+            using (var context = new ApplicationContext())
+            {
+                return context.Database.Exists();
+            }
+        }
+
+        private void CreateDatabase()
+        {
+            using (var context = new ApplicationContext())
+            {
+                // Criar o banco de dados
+                context.Database.Create();
+            }
+        }
+
+        private void InsertInitialData()
+        {
+            using (var context = new ApplicationContext())
+            {
+                // Inserir informações iniciais na tabela "Categorias"
+                var categorias = new List<Categoria>
+        {
+            new Categoria { Nome = "Comédia", Estado = true },
+            new Categoria { Nome = "Sci-fi", Estado = true },
+            new Categoria { Nome = "Terror", Estado = true },
+            new Categoria { Nome = "Romance", Estado = true },
+            new Categoria { Nome = "Ação", Estado = true },
+            new Categoria { Nome = "Thriller", Estado = true },
+            new Categoria { Nome = "Drama", Estado = true },
+            new Categoria { Nome = "Mistério", Estado = true },
+            new Categoria { Nome = "Crime", Estado = true },
+            new Categoria { Nome = "Aventura", Estado = true },
+            new Categoria { Nome = "Fantasia", Estado = true },
+            new Categoria { Nome = "Animação", Estado = true }
+        };
+
+                context.Categorias.AddRange(categorias);
+                context.SaveChanges();
+            }
         }
 
         /* Fazemos isto para utilizar sempre a janela do Form1.

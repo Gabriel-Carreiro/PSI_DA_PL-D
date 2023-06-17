@@ -80,11 +80,11 @@
     <Compile Include="Forms\FilmesForm.Designer.cs">
       <DependentUpon>FilmesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Form1.cs">
+    <Compile Include="Forms\PrincipalForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\PrincipalForm.Designer.cs">
+      <DependentUpon>PrincipalForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Pessoa\Funcionario.cs" />
     <Compile Include="Forms\FuncionariosForm.cs">
@@ -128,8 +128,8 @@
     <EmbeddedResource Include="Forms\FilmesForm.resx">
       <DependentUpon>FilmesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\PrincipalForm.resx">
+      <DependentUpon>PrincipalForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FuncionariosForm.resx">
       <DependentUpon>FuncionariosForm.cs</DependentUpon>

@@ -70,7 +70,7 @@
             this.groupBox1.Controls.Add(this.tbBusca);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.listViewFilmes);
-            this.groupBox1.Location = new System.Drawing.Point(185, 41);
+            this.groupBox1.Location = new System.Drawing.Point(184, 41);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(919, 500);
             this.groupBox1.TabIndex = 6;
@@ -247,9 +247,9 @@
             // 
             // btMostarTodosFilmes
             // 
-            this.btMostarTodosFilmes.Location = new System.Drawing.Point(762, 83);
+            this.btMostarTodosFilmes.Location = new System.Drawing.Point(797, 82);
             this.btMostarTodosFilmes.Name = "btMostarTodosFilmes";
-            this.btMostarTodosFilmes.Size = new System.Drawing.Size(103, 23);
+            this.btMostarTodosFilmes.Size = new System.Drawing.Size(116, 23);
             this.btMostarTodosFilmes.TabIndex = 17;
             this.btMostarTodosFilmes.Text = "Mostrar todos";
             this.btMostarTodosFilmes.UseVisualStyleBackColor = true;
@@ -294,7 +294,7 @@
             this.listViewFilmes.Location = new System.Drawing.Point(325, 118);
             this.listViewFilmes.MultiSelect = false;
             this.listViewFilmes.Name = "listViewFilmes";
-            this.listViewFilmes.Size = new System.Drawing.Size(546, 377);
+            this.listViewFilmes.Size = new System.Drawing.Size(588, 377);
             this.listViewFilmes.TabIndex = 5;
             this.listViewFilmes.UseCompatibleStateImageBehavior = false;
             this.listViewFilmes.View = System.Windows.Forms.View.Details;
