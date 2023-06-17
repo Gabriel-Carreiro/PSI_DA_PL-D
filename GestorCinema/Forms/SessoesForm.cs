@@ -17,6 +17,7 @@ namespace GestorCinema
         private ApplicationContext applicationContext;
         private List<Filme> filmes;
         private List<Categoria> categorias;
+        private List<Sala> salas;
 
         public SessoesForm()
         {
@@ -26,11 +27,17 @@ namespace GestorCinema
             this.MyGroupBox.Dock = DockStyle.Fill;
             this.Controls.Add(this.MyGroupBox);
             applicationContext = new ApplicationContext();
-            //Criar lista para categorias
+            //Criar lista de salas do cinema
+            salas = applicationContext.Salas.ToList();
+            //Criar lista para caregorias
             categorias = applicationContext.Categorias.ToList();
             //Criar lista para filmes em exibição
-            filmes = applicationContext.Filmes.ToList().FindAll(filme => filme.Estado).ToList();
+            filmes = applicationContext.Filmes.ToList().FindAll(filme => filme.Estado).ToList();       
 
+            //Colocar salas na list_rooms
+            list_rooms.DisplayMember = ("Nome");
+            list_rooms.DataSource = new List<Sala>(salas);
+            list_rooms.SelectedIndex = -1;
         }
 
         private void btn_showall_Click(object sender, EventArgs e)

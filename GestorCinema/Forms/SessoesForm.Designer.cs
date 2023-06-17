@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.search_by = new System.Windows.Forms.ComboBox();
             this.btn_create = new System.Windows.Forms.Button();
             this.list_sessions = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.list_rooms = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_showall = new System.Windows.Forms.Button();
             this.btn_search = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.search_by = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +55,7 @@
             this.groupBox1.Controls.Add(this.search_by);
             this.groupBox1.Controls.Add(this.btn_create);
             this.groupBox1.Controls.Add(this.list_sessions);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.list_rooms);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btn_showall);
             this.groupBox1.Controls.Add(this.btn_search);
@@ -70,6 +70,19 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sessão";
+            // 
+            // search_by
+            // 
+            this.search_by.FormattingEnabled = true;
+            this.search_by.Items.AddRange(new object[] {
+            "Id do Filme",
+            "Nome",
+            "Categoria"});
+            this.search_by.Location = new System.Drawing.Point(105, 39);
+            this.search_by.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.search_by.Name = "search_by";
+            this.search_by.Size = new System.Drawing.Size(106, 24);
+            this.search_by.TabIndex = 27;
             // 
             // btn_create
             // 
@@ -108,19 +121,14 @@
             // 
             this.columnHeader4.Text = "Estado";
             // 
-            // comboBox1
+            // list_rooms
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Id do Cliente",
-            "Nome",
-            "NIF",
-            "Telefone"});
-            this.comboBox1.Location = new System.Drawing.Point(559, 40);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(125, 24);
-            this.comboBox1.TabIndex = 4;
+            this.list_rooms.FormattingEnabled = true;
+            this.list_rooms.Location = new System.Drawing.Point(559, 40);
+            this.list_rooms.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.list_rooms.Name = "list_rooms";
+            this.list_rooms.Size = new System.Drawing.Size(125, 24);
+            this.list_rooms.TabIndex = 4;
             // 
             // label1
             // 
@@ -166,7 +174,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 43);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 20);
+            this.label5.Size = new System.Drawing.Size(91, 16);
             this.label5.TabIndex = 19;
             this.label5.Text = "Pesquisar por";
             // 
@@ -212,20 +220,6 @@
             this.columnHeader10.Text = "Estado";
             this.columnHeader10.Width = 63;
             // 
-            // search_by
-            // 
-            this.search_by.FormattingEnabled = true;
-            this.search_by.Items.AddRange(new object[] {
-            "Id do Cliente",
-            "Nome",
-            "NIF",
-            "Telefone"});
-            this.search_by.Location = new System.Drawing.Point(105, 39);
-            this.search_by.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.search_by.Name = "search_by";
-            this.search_by.Size = new System.Drawing.Size(106, 24);
-            this.search_by.TabIndex = 27;
-            // 
             // SessoesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -245,7 +239,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListView list_sessions;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox list_rooms;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_showall;
         private System.Windows.Forms.Button btn_search;
