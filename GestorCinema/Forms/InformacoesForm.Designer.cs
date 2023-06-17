@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Funcionário = new System.Windows.Forms.GroupBox();
+            this.cinema = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,7 +57,7 @@
             this.numeroFilaEditar = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.Funcionário.SuspendLayout();
+            this.cinema.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numeroColunaCriar)).BeginInit();
@@ -69,7 +69,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.Funcionário);
+            this.groupBox1.Controls.Add(this.cinema);
             this.groupBox1.Controls.Add(this.tabControl1);
             this.groupBox1.Location = new System.Drawing.Point(184, 41);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -80,25 +80,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações";
             // 
-            // Funcionário
+            // cinema
             // 
-            this.Funcionário.Controls.Add(this.button1);
-            this.Funcionário.Controls.Add(this.label8);
-            this.Funcionário.Controls.Add(this.label4);
-            this.Funcionário.Controls.Add(this.tBEmailCinema);
-            this.Funcionário.Controls.Add(this.label3);
-            this.Funcionário.Controls.Add(this.tBMoradaCinema);
-            this.Funcionário.Controls.Add(this.label2);
-            this.Funcionário.Controls.Add(this.tBNomeCinema);
-            this.Funcionário.Controls.Add(this.label1);
-            this.Funcionário.Location = new System.Drawing.Point(38, 96);
-            this.Funcionário.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Funcionário.Name = "Funcionário";
-            this.Funcionário.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Funcionário.Size = new System.Drawing.Size(394, 321);
-            this.Funcionário.TabIndex = 18;
-            this.Funcionário.TabStop = false;
-            this.Funcionário.Text = "Funcionário";
+            this.cinema.Controls.Add(this.button1);
+            this.cinema.Controls.Add(this.label8);
+            this.cinema.Controls.Add(this.label4);
+            this.cinema.Controls.Add(this.tBEmailCinema);
+            this.cinema.Controls.Add(this.label3);
+            this.cinema.Controls.Add(this.tBMoradaCinema);
+            this.cinema.Controls.Add(this.label2);
+            this.cinema.Controls.Add(this.tBNomeCinema);
+            this.cinema.Controls.Add(this.label1);
+            this.cinema.Location = new System.Drawing.Point(38, 96);
+            this.cinema.Margin = new System.Windows.Forms.Padding(4);
+            this.cinema.Name = "cinema";
+            this.cinema.Padding = new System.Windows.Forms.Padding(4);
+            this.cinema.Size = new System.Drawing.Size(394, 321);
+            this.cinema.TabIndex = 18;
+            this.cinema.TabStop = false;
+            this.cinema.Text = "Cinema";
             // 
             // button1
             // 
@@ -283,7 +283,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(423, 292);
+            this.tabPage2.Size = new System.Drawing.Size(423, 231);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Editar";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -360,8 +360,8 @@
             this.Name = "InformacoesForm";
             this.Text = "Informacoes";
             this.groupBox1.ResumeLayout(false);
-            this.Funcionário.ResumeLayout(false);
-            this.Funcionário.PerformLayout();
+            this.cinema.ResumeLayout(false);
+            this.cinema.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -395,7 +395,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown numeroFilaEditar;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.GroupBox Funcionário;
+        private System.Windows.Forms.GroupBox cinema;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;

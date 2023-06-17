@@ -13,19 +13,22 @@ namespace GestorCinema
         public string Nome { get; set; }
         public string Morada { get; set; }
         public string Email { get; set; }
-        public int Salas { get; set; }
+        public List<Sala> Salas { get; set; }
+
+        private int num_salas = 0;
 
         public Cinema() { }
-        public Cinema(string nome, string morada, string email, int salas)
+        public Cinema(string nome, string morada, string email, int num_salas)
         {
             Nome = nome;
             Morada = morada;
             Email = email;
-            Salas = salas;
+            this.num_salas = num_salas;
         }
-        public void AdicionarSala()
+        public void AdicionarSala(Sala sala)
         {
-            Salas++;
+            Salas.Add(sala);
+            this.num_salas++;
         }
     }
 

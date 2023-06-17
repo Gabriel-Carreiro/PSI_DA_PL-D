@@ -14,11 +14,11 @@ namespace GestorCinema
         public int Colunas { get; set; }
         public int Filas { get; set; }
 
-        public Sala(Cinema cinema, int colunas, int filas) 
+        public Sala(int colunas, int filas) 
         {
-            cinema.AdicionarSala();
             Colunas = colunas;
             Filas = filas;
         }
+
     }
 }
