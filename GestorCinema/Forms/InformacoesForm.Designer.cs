@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cinema = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
+            this.gbCinema = new System.Windows.Forms.GroupBox();
+            this.btSalvar = new System.Windows.Forms.Button();
+            this.numeroSalas = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tBEmailCinema = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,10 +39,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tBNomeCinema = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControlSalas = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.buttonCriarSala = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
+            this.novaSala = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.numeroColunaCriar = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
@@ -56,9 +56,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.numeroFilaEditar = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
+            this.buttonExcluirSala = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.cinema.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.gbCinema.SuspendLayout();
+            this.tabControlSalas.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numeroColunaCriar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numeroFilaCriar)).BeginInit();
@@ -69,8 +70,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cinema);
-            this.groupBox1.Controls.Add(this.tabControl1);
+            this.groupBox1.Controls.Add(this.gbCinema);
+            this.groupBox1.Controls.Add(this.tabControlSalas);
             this.groupBox1.Location = new System.Drawing.Point(184, 41);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
@@ -80,44 +81,45 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações";
             // 
-            // cinema
+            // gbCinema
             // 
-            this.cinema.Controls.Add(this.button1);
-            this.cinema.Controls.Add(this.label8);
-            this.cinema.Controls.Add(this.label4);
-            this.cinema.Controls.Add(this.tBEmailCinema);
-            this.cinema.Controls.Add(this.label3);
-            this.cinema.Controls.Add(this.tBMoradaCinema);
-            this.cinema.Controls.Add(this.label2);
-            this.cinema.Controls.Add(this.tBNomeCinema);
-            this.cinema.Controls.Add(this.label1);
-            this.cinema.Location = new System.Drawing.Point(38, 96);
-            this.cinema.Margin = new System.Windows.Forms.Padding(4);
-            this.cinema.Name = "cinema";
-            this.cinema.Padding = new System.Windows.Forms.Padding(4);
-            this.cinema.Size = new System.Drawing.Size(394, 321);
-            this.cinema.TabIndex = 18;
-            this.cinema.TabStop = false;
-            this.cinema.Text = "Cinema";
+            this.gbCinema.Controls.Add(this.btSalvar);
+            this.gbCinema.Controls.Add(this.numeroSalas);
+            this.gbCinema.Controls.Add(this.label4);
+            this.gbCinema.Controls.Add(this.tBEmailCinema);
+            this.gbCinema.Controls.Add(this.label3);
+            this.gbCinema.Controls.Add(this.tBMoradaCinema);
+            this.gbCinema.Controls.Add(this.label2);
+            this.gbCinema.Controls.Add(this.tBNomeCinema);
+            this.gbCinema.Controls.Add(this.label1);
+            this.gbCinema.Location = new System.Drawing.Point(38, 96);
+            this.gbCinema.Margin = new System.Windows.Forms.Padding(4);
+            this.gbCinema.Name = "gbCinema";
+            this.gbCinema.Padding = new System.Windows.Forms.Padding(4);
+            this.gbCinema.Size = new System.Drawing.Size(394, 321);
+            this.gbCinema.TabIndex = 18;
+            this.gbCinema.TabStop = false;
+            this.gbCinema.Text = "Cinema";
             // 
-            // button1
+            // btSalvar
             // 
-            this.button1.Location = new System.Drawing.Point(278, 260);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 31);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "Salvar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btSalvar.Location = new System.Drawing.Point(278, 260);
+            this.btSalvar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btSalvar.Name = "btSalvar";
+            this.btSalvar.Size = new System.Drawing.Size(89, 31);
+            this.btSalvar.TabIndex = 42;
+            this.btSalvar.Text = "Salvar";
+            this.btSalvar.UseVisualStyleBackColor = true;
+            this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
             // 
-            // label8
+            // numeroSalas
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(134, 221);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(225, 16);
-            this.label8.TabIndex = 41;
-            this.label8.Text = "Ira receber o numero de salas atuais";
+            this.numeroSalas.AutoSize = true;
+            this.numeroSalas.Location = new System.Drawing.Point(134, 221);
+            this.numeroSalas.Name = "numeroSalas";
+            this.numeroSalas.Size = new System.Drawing.Size(18, 20);
+            this.numeroSalas.TabIndex = 41;
+            this.numeroSalas.Text = "1";
             // 
             // label4
             // 
@@ -179,21 +181,22 @@
             this.label1.TabIndex = 34;
             this.label1.Text = "Nome";
             // 
-            // tabControl1
+            // tabControlSalas
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(467, 127);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(431, 260);
-            this.tabControl1.TabIndex = 17;
+            this.tabControlSalas.Controls.Add(this.tabPage1);
+            this.tabControlSalas.Controls.Add(this.tabPage2);
+            this.tabControlSalas.Location = new System.Drawing.Point(467, 127);
+            this.tabControlSalas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabControlSalas.Name = "tabControlSalas";
+            this.tabControlSalas.SelectedIndex = 0;
+            this.tabControlSalas.Size = new System.Drawing.Size(431, 260);
+            this.tabControlSalas.TabIndex = 17;
+            this.tabControlSalas.Visible = false;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.buttonCriarSala);
-            this.tabPage1.Controls.Add(this.label10);
+            this.tabPage1.Controls.Add(this.novaSala);
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.numeroColunaCriar);
             this.tabPage1.Controls.Add(this.label12);
@@ -217,15 +220,16 @@
             this.buttonCriarSala.TabIndex = 25;
             this.buttonCriarSala.Text = "Criar";
             this.buttonCriarSala.UseVisualStyleBackColor = true;
+            this.buttonCriarSala.Click += new System.EventHandler(this.buttonCriarSala_Click);
             // 
-            // label10
+            // novaSala
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(179, 52);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(51, 16);
-            this.label10.TabIndex = 24;
-            this.label10.Text = "label10";
+            this.novaSala.AutoSize = true;
+            this.novaSala.Location = new System.Drawing.Point(179, 52);
+            this.novaSala.Name = "novaSala";
+            this.novaSala.Size = new System.Drawing.Size(18, 20);
+            this.novaSala.TabIndex = 24;
+            this.novaSala.Text = "2";
             // 
             // label11
             // 
@@ -272,6 +276,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.buttonExcluirSala);
             this.tabPage2.Controls.Add(this.numeroSala);
             this.tabPage2.Controls.Add(this.buttonEditarSala);
             this.tabPage2.Controls.Add(this.label6);
@@ -296,6 +301,7 @@
             this.numeroSala.Name = "numeroSala";
             this.numeroSala.Size = new System.Drawing.Size(75, 24);
             this.numeroSala.TabIndex = 33;
+            this.numeroSala.SelectedIndexChanged += new System.EventHandler(this.numeroSala_SelectedIndexChanged);
             // 
             // buttonEditarSala
             // 
@@ -306,6 +312,7 @@
             this.buttonEditarSala.TabIndex = 32;
             this.buttonEditarSala.Text = "Editar";
             this.buttonEditarSala.UseVisualStyleBackColor = true;
+            this.buttonEditarSala.Click += new System.EventHandler(this.buttonEditarSala_Click);
             // 
             // label6
             // 
@@ -350,6 +357,17 @@
             this.label9.TabIndex = 28;
             this.label9.Text = "Numero de filas";
             // 
+            // buttonExcluirSala
+            // 
+            this.buttonExcluirSala.Location = new System.Drawing.Point(228, 185);
+            this.buttonExcluirSala.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonExcluirSala.Name = "buttonExcluirSala";
+            this.buttonExcluirSala.Size = new System.Drawing.Size(75, 23);
+            this.buttonExcluirSala.TabIndex = 34;
+            this.buttonExcluirSala.Text = "Excluir";
+            this.buttonExcluirSala.UseVisualStyleBackColor = true;
+            this.buttonExcluirSala.Click += new System.EventHandler(this.buttonExcluirSala_Click);
+            // 
             // InformacoesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -360,9 +378,9 @@
             this.Name = "InformacoesForm";
             this.Text = "Informacoes";
             this.groupBox1.ResumeLayout(false);
-            this.cinema.ResumeLayout(false);
-            this.cinema.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.gbCinema.ResumeLayout(false);
+            this.gbCinema.PerformLayout();
+            this.tabControlSalas.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numeroColunaCriar)).EndInit();
@@ -378,10 +396,10 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControlSalas;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button buttonCriarSala;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label novaSala;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown numeroColunaCriar;
         private System.Windows.Forms.Label label12;
@@ -395,9 +413,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown numeroFilaEditar;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.GroupBox cinema;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.GroupBox gbCinema;
+        private System.Windows.Forms.Button btSalvar;
+        private System.Windows.Forms.Label numeroSalas;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tBEmailCinema;
         private System.Windows.Forms.Label label3;
@@ -405,5 +423,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tBNomeCinema;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonExcluirSala;
     }
 }

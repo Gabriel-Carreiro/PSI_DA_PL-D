@@ -32,7 +32,6 @@ namespace GestorCinema
             salas = applicationContext.Salas.ToList();
             //Criar lista de salas do cinema em utilização
             cinema = applicationContext.Cinema.First();
-            salas = cinema.Salas;
             //Criar lista para caregorias
             categorias = applicationContext.Categorias.ToList();
             //Criar lista para filmes em exibição

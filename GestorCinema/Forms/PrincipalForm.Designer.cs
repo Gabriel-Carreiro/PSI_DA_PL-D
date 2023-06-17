@@ -28,19 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.informaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.principalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.atendimentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.filmesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.filmesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.sessõesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.funcionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informaçõesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trocarDeUtilizadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBoxMenuRapido = new System.Windows.Forms.GroupBox();
             this.btPrincipal = new System.Windows.Forms.Button();
@@ -53,6 +40,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBoxSessoesDia = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btMostarTodosFilmes = new System.Windows.Forms.Button();
             this.btBuscarFilme = new System.Windows.Forms.Button();
             this.tbBusca = new System.Windows.Forms.TextBox();
@@ -65,119 +53,10 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
             this.groupBoxMenuRapido.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBoxSessoesDia.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.informaçõesToolStripMenuItem,
-            this.sairToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1116, 28);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // informaçõesToolStripMenuItem
-            // 
-            this.informaçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.principalToolStripMenuItem,
-            this.atendimentoToolStripMenuItem,
-            this.filmesToolStripMenuItem,
-            this.clientesToolStripMenuItem,
-            this.informaçõesToolStripMenuItem1});
-            this.informaçõesToolStripMenuItem.Name = "informaçõesToolStripMenuItem";
-            this.informaçõesToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
-            this.informaçõesToolStripMenuItem.Text = "Menu";
-            // 
-            // principalToolStripMenuItem
-            // 
-            this.principalToolStripMenuItem.Name = "principalToolStripMenuItem";
-            this.principalToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
-            this.principalToolStripMenuItem.Text = "Principal";
-            this.principalToolStripMenuItem.Click += new System.EventHandler(this.principalToolStripMenuItem_Click);
-            // 
-            // atendimentoToolStripMenuItem
-            // 
-            this.atendimentoToolStripMenuItem.Name = "atendimentoToolStripMenuItem";
-            this.atendimentoToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
-            this.atendimentoToolStripMenuItem.Text = "Atendimento";
-            this.atendimentoToolStripMenuItem.Click += new System.EventHandler(this.atendimentoToolStripMenuItem_Click);
-            // 
-            // filmesToolStripMenuItem
-            // 
-            this.filmesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.filmesToolStripMenuItem1,
-            this.sessõesToolStripMenuItem1,
-            this.funcionarioToolStripMenuItem});
-            this.filmesToolStripMenuItem.Name = "filmesToolStripMenuItem";
-            this.filmesToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
-            this.filmesToolStripMenuItem.Text = "Adicionar";
-            // 
-            // filmesToolStripMenuItem1
-            // 
-            this.filmesToolStripMenuItem1.Name = "filmesToolStripMenuItem1";
-            this.filmesToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.filmesToolStripMenuItem1.Text = "Filmes";
-            this.filmesToolStripMenuItem1.Click += new System.EventHandler(this.filmesToolStripMenuItem1_Click);
-            // 
-            // sessõesToolStripMenuItem1
-            // 
-            this.sessõesToolStripMenuItem1.Name = "sessõesToolStripMenuItem1";
-            this.sessõesToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.sessõesToolStripMenuItem1.Text = "Sessões";
-            this.sessõesToolStripMenuItem1.Click += new System.EventHandler(this.sessõesToolStripMenuItem1_Click);
-            // 
-            // funcionarioToolStripMenuItem
-            // 
-            this.funcionarioToolStripMenuItem.Name = "funcionarioToolStripMenuItem";
-            this.funcionarioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.funcionarioToolStripMenuItem.Text = "Funcionário";
-            this.funcionarioToolStripMenuItem.Click += new System.EventHandler(this.funcionarioToolStripMenuItem_Click);
-            // 
-            // clientesToolStripMenuItem
-            // 
-            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
-            this.clientesToolStripMenuItem.Text = "Clientes";
-            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
-            // 
-            // informaçõesToolStripMenuItem1
-            // 
-            this.informaçõesToolStripMenuItem1.Name = "informaçõesToolStripMenuItem1";
-            this.informaçõesToolStripMenuItem1.Size = new System.Drawing.Size(228, 26);
-            this.informaçõesToolStripMenuItem1.Text = "Informações Cinema";
-            this.informaçõesToolStripMenuItem1.Click += new System.EventHandler(this.informaçõesToolStripMenuItem1_Click);
-            // 
-            // sairToolStripMenuItem
-            // 
-            this.sairToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.sairToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.trocarDeUtilizadorToolStripMenuItem,
-            this.sairToolStripMenuItem1});
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(48, 24);
-            this.sairToolStripMenuItem.Text = "Sair";
-            // 
-            // trocarDeUtilizadorToolStripMenuItem
-            // 
-            this.trocarDeUtilizadorToolStripMenuItem.Name = "trocarDeUtilizadorToolStripMenuItem";
-            this.trocarDeUtilizadorToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
-            this.trocarDeUtilizadorToolStripMenuItem.Text = "Trocar de utilizador";
-            // 
-            // sairToolStripMenuItem1
-            // 
-            this.sairToolStripMenuItem1.Name = "sairToolStripMenuItem1";
-            this.sairToolStripMenuItem1.Size = new System.Drawing.Size(221, 26);
-            this.sairToolStripMenuItem1.Text = "Sair";
-            this.sairToolStripMenuItem1.Click += new System.EventHandler(this.sairToolStripMenuItem1_Click);
             // 
             // panel1
             // 
@@ -306,6 +185,15 @@
             this.groupBoxSessoesDia.TabStop = false;
             this.groupBoxSessoesDia.Text = "Sessoes do dia";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(740, 461);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Selecionar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // btMostarTodosFilmes
             // 
             this.btMostarTodosFilmes.Location = new System.Drawing.Point(581, 20);
@@ -394,16 +282,7 @@
             this.columnHeader3.Text = "Horario";
             this.columnHeader3.Width = 100;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(740, 461);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Selecionar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // Form1
+            // PrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -412,13 +291,9 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBoxSessoesDia);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Form1";
+            this.Name = "PrincipalForm";
             this.Text = "tea";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.groupBoxMenuRapido.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -430,20 +305,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem informaçõesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem filmesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem informaçõesToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem trocarDeUtilizadorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem filmesToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem sessõesToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem funcionarioToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ToolStripMenuItem atendimentoToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         public System.Windows.Forms.GroupBox groupBoxSessoesDia;
@@ -466,7 +328,6 @@
         private System.Windows.Forms.Button btAtendimento;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ToolStripMenuItem principalToolStripMenuItem;
         private System.Windows.Forms.Button btPrincipal;
         private System.Windows.Forms.Button button1;
     }

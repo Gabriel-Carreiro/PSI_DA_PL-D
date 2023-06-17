@@ -10,12 +10,11 @@ namespace GestorCinema
     internal class Cinema
     {
         [Key]
+        public int Id { get; set; }
         public string Nome { get; set; }
         public string Morada { get; set; }
         public string Email { get; set; }
-        public List<Sala> Salas { get; set; }
-
-        private int num_salas = 0;
+        public int numSalas {get; set;}
 
         public Cinema() { }
         public Cinema(string nome, string morada, string email, int num_salas)
@@ -23,12 +22,15 @@ namespace GestorCinema
             Nome = nome;
             Morada = morada;
             Email = email;
-            this.num_salas = num_salas;
+            numSalas = num_salas;
         }
-        public void AdicionarSala(Sala sala)
+        public void AdicionarSala()
         {
-            Salas.Add(sala);
-            this.num_salas++;
+            numSalas++;
+        }
+        public void ExcluirSala()
+        {
+            numSalas--;
         }
     }
 
