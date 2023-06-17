@@ -70,9 +70,9 @@
             this.groupBox1.Controls.Add(this.tbBusca);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.listViewFilmes);
-            this.groupBox1.Location = new System.Drawing.Point(13, 26);
+            this.groupBox1.Location = new System.Drawing.Point(185, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1091, 516);
+            this.groupBox1.Size = new System.Drawing.Size(919, 500);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filme";
@@ -94,7 +94,7 @@
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Location = new System.Drawing.Point(13, 118);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(356, 219);
+            this.groupBox3.Size = new System.Drawing.Size(299, 219);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Criar filme";
@@ -118,7 +118,7 @@
             // 
             // btAlterarFilme
             // 
-            this.btAlterarFilme.Location = new System.Drawing.Point(166, 185);
+            this.btAlterarFilme.Location = new System.Drawing.Point(133, 186);
             this.btAlterarFilme.Name = "btAlterarFilme";
             this.btAlterarFilme.Size = new System.Drawing.Size(75, 23);
             this.btAlterarFilme.TabIndex = 5;
@@ -130,7 +130,7 @@
             // 
             this.tbNomeFilme.Location = new System.Drawing.Point(79, 49);
             this.tbNomeFilme.Name = "tbNomeFilme";
-            this.tbNomeFilme.Size = new System.Drawing.Size(271, 22);
+            this.tbNomeFilme.Size = new System.Drawing.Size(213, 22);
             this.tbNomeFilme.TabIndex = 1;
             // 
             // label2
@@ -188,7 +188,7 @@
             // 
             // btAdicionarFilme
             // 
-            this.btAdicionarFilme.Location = new System.Drawing.Point(275, 186);
+            this.btAdicionarFilme.Location = new System.Drawing.Point(218, 186);
             this.btAdicionarFilme.Name = "btAdicionarFilme";
             this.btAdicionarFilme.Size = new System.Drawing.Size(75, 23);
             this.btAdicionarFilme.TabIndex = 6;
@@ -212,7 +212,7 @@
             this.groupBox2.Controls.Add(this.btAlterarEstadoCategoria);
             this.groupBox2.Location = new System.Drawing.Point(13, 355);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(350, 140);
+            this.groupBox2.Size = new System.Drawing.Size(299, 140);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Categorias";
@@ -237,9 +237,9 @@
             // 
             // btAlterarEstadoCategoria
             // 
-            this.btAlterarEstadoCategoria.Location = new System.Drawing.Point(236, 65);
+            this.btAlterarEstadoCategoria.Location = new System.Drawing.Point(209, 65);
             this.btAlterarEstadoCategoria.Name = "btAlterarEstadoCategoria";
-            this.btAlterarEstadoCategoria.Size = new System.Drawing.Size(97, 23);
+            this.btAlterarEstadoCategoria.Size = new System.Drawing.Size(83, 23);
             this.btAlterarEstadoCategoria.TabIndex = 8;
             this.btAlterarEstadoCategoria.Text = "Ativar";
             this.btAlterarEstadoCategoria.UseVisualStyleBackColor = true;
@@ -247,9 +247,9 @@
             // 
             // btMostarTodosFilmes
             // 
-            this.btMostarTodosFilmes.Location = new System.Drawing.Point(968, 83);
+            this.btMostarTodosFilmes.Location = new System.Drawing.Point(762, 83);
             this.btMostarTodosFilmes.Name = "btMostarTodosFilmes";
-            this.btMostarTodosFilmes.Size = new System.Drawing.Size(112, 23);
+            this.btMostarTodosFilmes.Size = new System.Drawing.Size(103, 23);
             this.btMostarTodosFilmes.TabIndex = 17;
             this.btMostarTodosFilmes.Text = "Mostrar todos";
             this.btMostarTodosFilmes.UseVisualStyleBackColor = true;
@@ -257,9 +257,9 @@
             // 
             // btBuscarFilme
             // 
-            this.btBuscarFilme.Location = new System.Drawing.Point(887, 83);
+            this.btBuscarFilme.Location = new System.Drawing.Point(691, 83);
             this.btBuscarFilme.Name = "btBuscarFilme";
-            this.btBuscarFilme.Size = new System.Drawing.Size(75, 23);
+            this.btBuscarFilme.Size = new System.Drawing.Size(61, 23);
             this.btBuscarFilme.TabIndex = 16;
             this.btBuscarFilme.Text = "Buscar";
             this.btBuscarFilme.UseVisualStyleBackColor = true;
@@ -267,15 +267,15 @@
             // 
             // tbBusca
             // 
-            this.tbBusca.Location = new System.Drawing.Point(456, 83);
+            this.tbBusca.Location = new System.Drawing.Point(406, 83);
             this.tbBusca.Name = "tbBusca";
-            this.tbBusca.Size = new System.Drawing.Size(412, 22);
+            this.tbBusca.Size = new System.Drawing.Size(279, 22);
             this.tbBusca.TabIndex = 14;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(372, 86);
+            this.label5.Location = new System.Drawing.Point(322, 86);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 16);
             this.label5.TabIndex = 13;
@@ -291,10 +291,10 @@
             this.columnHeader10});
             this.listViewFilmes.FullRowSelect = true;
             this.listViewFilmes.HideSelection = false;
-            this.listViewFilmes.Location = new System.Drawing.Point(375, 130);
+            this.listViewFilmes.Location = new System.Drawing.Point(325, 118);
             this.listViewFilmes.MultiSelect = false;
             this.listViewFilmes.Name = "listViewFilmes";
-            this.listViewFilmes.Size = new System.Drawing.Size(688, 365);
+            this.listViewFilmes.Size = new System.Drawing.Size(546, 377);
             this.listViewFilmes.TabIndex = 5;
             this.listViewFilmes.UseCompatibleStateImageBehavior = false;
             this.listViewFilmes.View = System.Windows.Forms.View.Details;

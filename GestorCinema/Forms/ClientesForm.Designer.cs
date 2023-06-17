@@ -30,6 +30,7 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gBCliente = new System.Windows.Forms.GroupBox();
+            this.btAtualizarCliente = new System.Windows.Forms.Button();
             this.tbId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.btBuscarCliente = new System.Windows.Forms.Button();
             this.tbBuscaCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btAtualizarCliente = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gBCliente.SuspendLayout();
             this.SuspendLayout();
@@ -66,9 +66,9 @@
             this.groupBox1.Controls.Add(this.btBuscarCliente);
             this.groupBox1.Controls.Add(this.tbBuscaCliente);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 45);
+            this.groupBox1.Location = new System.Drawing.Point(184, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1091, 516);
+            this.groupBox1.Size = new System.Drawing.Size(920, 500);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Clientes";
@@ -88,12 +88,22 @@
             this.gBCliente.Controls.Add(this.tbMorada);
             this.gBCliente.Controls.Add(this.tbNif);
             this.gBCliente.Controls.Add(this.label5);
-            this.gBCliente.Location = new System.Drawing.Point(26, 97);
+            this.gBCliente.Location = new System.Drawing.Point(6, 97);
             this.gBCliente.Name = "gBCliente";
             this.gBCliente.Size = new System.Drawing.Size(402, 267);
             this.gBCliente.TabIndex = 38;
             this.gBCliente.TabStop = false;
             this.gBCliente.Text = "Cliente";
+            // 
+            // btAtualizarCliente
+            // 
+            this.btAtualizarCliente.Location = new System.Drawing.Point(223, 218);
+            this.btAtualizarCliente.Name = "btAtualizarCliente";
+            this.btAtualizarCliente.Size = new System.Drawing.Size(75, 23);
+            this.btAtualizarCliente.TabIndex = 38;
+            this.btAtualizarCliente.Text = "Atualizar";
+            this.btAtualizarCliente.UseVisualStyleBackColor = true;
+            this.btAtualizarCliente.Click += new System.EventHandler(this.btAtualizarCliente_Click);
             // 
             // tbId
             // 
@@ -188,7 +198,7 @@
             // 
             // btMostrarTodosClientes
             // 
-            this.btMostrarTodosClientes.Location = new System.Drawing.Point(926, 474);
+            this.btMostrarTodosClientes.Location = new System.Drawing.Point(763, 471);
             this.btMostrarTodosClientes.Name = "btMostrarTodosClientes";
             this.btMostrarTodosClientes.Size = new System.Drawing.Size(138, 23);
             this.btMostrarTodosClientes.TabIndex = 6;
@@ -208,10 +218,10 @@
             this.columnHeader7});
             this.listViewClientes.FullRowSelect = true;
             this.listViewClientes.HideSelection = false;
-            this.listViewClientes.Location = new System.Drawing.Point(451, 72);
+            this.listViewClientes.Location = new System.Drawing.Point(414, 73);
             this.listViewClientes.MultiSelect = false;
             this.listViewClientes.Name = "listViewClientes";
-            this.listViewClientes.Size = new System.Drawing.Size(613, 380);
+            this.listViewClientes.Size = new System.Drawing.Size(487, 380);
             this.listViewClientes.TabIndex = 5;
             this.listViewClientes.UseCompatibleStateImageBehavior = false;
             this.listViewClientes.View = System.Windows.Forms.View.Details;
@@ -254,7 +264,7 @@
             // 
             // btBuscarCliente
             // 
-            this.btBuscarCliente.Location = new System.Drawing.Point(857, 32);
+            this.btBuscarCliente.Location = new System.Drawing.Point(820, 33);
             this.btBuscarCliente.Name = "btBuscarCliente";
             this.btBuscarCliente.Size = new System.Drawing.Size(81, 23);
             this.btBuscarCliente.TabIndex = 4;
@@ -264,7 +274,7 @@
             // 
             // tbBuscaCliente
             // 
-            this.tbBuscaCliente.Location = new System.Drawing.Point(542, 33);
+            this.tbBuscaCliente.Location = new System.Drawing.Point(505, 34);
             this.tbBuscaCliente.Name = "tbBuscaCliente";
             this.tbBuscaCliente.Size = new System.Drawing.Size(285, 22);
             this.tbBuscaCliente.TabIndex = 1;
@@ -272,21 +282,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(448, 36);
+            this.label2.Location = new System.Drawing.Point(411, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Pesquisar";
-            // 
-            // btAtualizarCliente
-            // 
-            this.btAtualizarCliente.Location = new System.Drawing.Point(223, 218);
-            this.btAtualizarCliente.Name = "btAtualizarCliente";
-            this.btAtualizarCliente.Size = new System.Drawing.Size(75, 23);
-            this.btAtualizarCliente.TabIndex = 38;
-            this.btAtualizarCliente.Text = "Atualizar";
-            this.btAtualizarCliente.UseVisualStyleBackColor = true;
-            this.btAtualizarCliente.Click += new System.EventHandler(this.btAtualizarCliente_Click);
             // 
             // ClientesForm
             // 

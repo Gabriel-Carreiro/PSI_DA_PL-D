@@ -39,6 +39,12 @@ namespace GestorCinema
          * Estaremos a colocar o formulário Clientes na GroupBox
          * Que por sua vez será apresentada na janela do Form1.
         */
+        private void principalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Limpar painel
+            clearPanel();
+            groupBoxSessoesDia.Visible = true;
+        }
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Limpar painel
@@ -50,7 +56,8 @@ namespace GestorCinema
                 //Instanciar o formulário de clientes
                 this.formClientes = new ClientesForm();
             }
-            
+
+            groupBoxSessoesDia.Visible = false;
             //Instancia GroupBox que irá corresponder ao GroupBox do formulário Clientes
             GroupBox groupBox = this.formClientes.MyGroupBox;
 
@@ -69,6 +76,7 @@ namespace GestorCinema
                 this.formFuncionarios = new FuncionariosForm();
             }
 
+            groupBoxSessoesDia.Visible = false;
             GroupBox groupBox = this.formFuncionarios.MyGroupBox;
             groupBox.Parent = this.panel1;
             groupBox.Visible = true;
@@ -82,6 +90,7 @@ namespace GestorCinema
                 this.formInformacoes = new InformacoesForm();
             }
 
+            groupBoxSessoesDia.Visible = false;
             GroupBox groupBox = this.formInformacoes.MyGroupBox;
             groupBox.Parent = this.panel1;
             groupBox.Visible = true;
@@ -95,7 +104,7 @@ namespace GestorCinema
             {
                 this.formAtendimento = new AtendimentoForm();
             }
-
+            groupBoxSessoesDia.Visible = false;
             //Criar um controlodador Tab
             TabControl tabControl = new TabControl();
 
@@ -128,6 +137,7 @@ namespace GestorCinema
                 this.formFilmes = new FilmesForm();
             }
 
+            groupBoxSessoesDia.Visible = false;
             GroupBox groupBox = this.formFilmes.MyGroupBox;
             groupBox.Parent = this.panel1;
             groupBox.Visible = true;
@@ -141,6 +151,7 @@ namespace GestorCinema
                 this.formSessoes = new SessoesForm();
             }
 
+            groupBoxSessoesDia.Visible = false;
             GroupBox groupBox = this.formSessoes.MyGroupBox;
             groupBox.Parent = this.panel1;
             groupBox.Visible = true;
@@ -157,9 +168,40 @@ namespace GestorCinema
             panel1.Controls.Clear();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
 
+        private void btAtendimento_Click(object sender, EventArgs e)
+        {
+            atendimentoToolStripMenuItem_Click(sender, e);
+        }
+
+        private void btClientes_Click(object sender, EventArgs e)
+        {
+            clientesToolStripMenuItem_Click(sender, e);
+        }
+
+        private void btFuncionarios_Click(object sender, EventArgs e)
+        {
+            funcionarioToolStripMenuItem_Click(sender, e);
+        }
+
+        private void btFilmes_Click(object sender, EventArgs e)
+        {
+            filmesToolStripMenuItem1_Click(sender, e);
+        }
+
+        private void btSessoes_Click(object sender, EventArgs e)
+        {
+            sessõesToolStripMenuItem1_Click(sender , e);
+        }
+
+        private void btInformacoes_Click(object sender, EventArgs e)
+        {
+            informaçõesToolStripMenuItem1_Click(sender, e);
+        }
+
+        private void btPrincipal_Click(object sender, EventArgs e)
+        {
+            principalToolStripMenuItem_Click(sender, e);
         }
     }
 }

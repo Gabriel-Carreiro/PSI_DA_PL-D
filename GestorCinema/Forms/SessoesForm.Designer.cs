@@ -38,7 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_showall = new System.Windows.Forms.Button();
             this.btn_search = new System.Windows.Forms.Button();
-            this.search_by = new System.Windows.Forms.ComboBox();
             this.txt_search = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.list_films = new System.Windows.Forms.ListView();
@@ -47,36 +46,37 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.search_by = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.search_by);
             this.groupBox1.Controls.Add(this.btn_create);
             this.groupBox1.Controls.Add(this.list_sessions);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btn_showall);
             this.groupBox1.Controls.Add(this.btn_search);
-            this.groupBox1.Controls.Add(this.search_by);
             this.groupBox1.Controls.Add(this.txt_search);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.list_films);
-            this.groupBox1.Location = new System.Drawing.Point(9, 33);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(184, 56);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(818, 419);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(919, 501);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sessão";
             // 
             // btn_create
             // 
-            this.btn_create.Location = new System.Drawing.Point(730, 388);
-            this.btn_create.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_create.Location = new System.Drawing.Point(800, 461);
+            this.btn_create.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_create.Name = "btn_create";
-            this.btn_create.Size = new System.Drawing.Size(84, 19);
+            this.btn_create.Size = new System.Drawing.Size(112, 23);
             this.btn_create.TabIndex = 6;
             this.btn_create.Text = "Criar Sessão";
             this.btn_create.UseVisualStyleBackColor = true;
@@ -88,10 +88,10 @@
             this.columnHeader3,
             this.columnHeader4});
             this.list_sessions.HideSelection = false;
-            this.list_sessions.Location = new System.Drawing.Point(476, 84);
-            this.list_sessions.Margin = new System.Windows.Forms.Padding(2);
+            this.list_sessions.Location = new System.Drawing.Point(518, 86);
+            this.list_sessions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.list_sessions.Name = "list_sessions";
-            this.list_sessions.Size = new System.Drawing.Size(338, 297);
+            this.list_sessions.Size = new System.Drawing.Size(393, 365);
             this.list_sessions.TabIndex = 26;
             this.list_sessions.UseCompatibleStateImageBehavior = false;
             this.list_sessions.View = System.Windows.Forms.View.Details;
@@ -116,28 +116,27 @@
             "Nome",
             "NIF",
             "Telefone"});
-            this.comboBox1.Location = new System.Drawing.Point(512, 45);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Location = new System.Drawing.Point(559, 40);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(95, 21);
+            this.comboBox1.Size = new System.Drawing.Size(125, 24);
             this.comboBox1.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(481, 50);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(517, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 13);
+            this.label1.Size = new System.Drawing.Size(35, 16);
             this.label1.TabIndex = 24;
             this.label1.Text = "Sala";
             // 
             // btn_showall
             // 
-            this.btn_showall.Location = new System.Drawing.Point(370, 388);
-            this.btn_showall.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_showall.Location = new System.Drawing.Point(384, 461);
+            this.btn_showall.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_showall.Name = "btn_showall";
-            this.btn_showall.Size = new System.Drawing.Size(84, 19);
+            this.btn_showall.Size = new System.Drawing.Size(112, 23);
             this.btn_showall.TabIndex = 5;
             this.btn_showall.Text = "Mostrar todos";
             this.btn_showall.UseVisualStyleBackColor = true;
@@ -145,43 +144,29 @@
             // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(391, 46);
-            this.btn_search.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_search.Location = new System.Drawing.Point(421, 41);
+            this.btn_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(56, 19);
+            this.btn_search.Size = new System.Drawing.Size(75, 23);
             this.btn_search.TabIndex = 3;
             this.btn_search.Text = "Buscar";
             this.btn_search.UseVisualStyleBackColor = true;
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
-            // search_by
-            // 
-            this.search_by.FormattingEnabled = true;
-            this.search_by.Items.AddRange(new object[] {
-            "Id do Filme",
-            "Nome",
-            "Categoria"});
-            this.search_by.Location = new System.Drawing.Point(79, 45);
-            this.search_by.Margin = new System.Windows.Forms.Padding(2);
-            this.search_by.Name = "search_by";
-            this.search_by.Size = new System.Drawing.Size(95, 21);
-            this.search_by.TabIndex = 1;
-            // 
             // txt_search
             // 
-            this.txt_search.Location = new System.Drawing.Point(177, 46);
-            this.txt_search.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_search.Location = new System.Drawing.Point(217, 40);
+            this.txt_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_search.Name = "txt_search";
-            this.txt_search.Size = new System.Drawing.Size(210, 20);
+            this.txt_search.Size = new System.Drawing.Size(198, 22);
             this.txt_search.TabIndex = 2;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 49);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(12, 43);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 13);
+            this.label5.Size = new System.Drawing.Size(114, 20);
             this.label5.TabIndex = 19;
             this.label5.Text = "Pesquisar por";
             // 
@@ -194,10 +179,10 @@
             this.columnHeader9,
             this.columnHeader10});
             this.list_films.HideSelection = false;
-            this.list_films.Location = new System.Drawing.Point(7, 84);
-            this.list_films.Margin = new System.Windows.Forms.Padding(2);
+            this.list_films.Location = new System.Drawing.Point(16, 86);
+            this.list_films.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.list_films.Name = "list_films";
-            this.list_films.Size = new System.Drawing.Size(449, 297);
+            this.list_films.Size = new System.Drawing.Size(480, 365);
             this.list_films.TabIndex = 18;
             this.list_films.UseCompatibleStateImageBehavior = false;
             this.list_films.View = System.Windows.Forms.View.Details;
@@ -227,13 +212,27 @@
             this.columnHeader10.Text = "Estado";
             this.columnHeader10.Width = 63;
             // 
+            // search_by
+            // 
+            this.search_by.FormattingEnabled = true;
+            this.search_by.Items.AddRange(new object[] {
+            "Id do Cliente",
+            "Nome",
+            "NIF",
+            "Telefone"});
+            this.search_by.Location = new System.Drawing.Point(105, 39);
+            this.search_by.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.search_by.Name = "search_by";
+            this.search_by.Size = new System.Drawing.Size(106, 24);
+            this.search_by.TabIndex = 27;
+            // 
             // SessoesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 462);
+            this.ClientSize = new System.Drawing.Size(1116, 569);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SessoesForm";
             this.Text = "Sessao";
             this.groupBox1.ResumeLayout(false);
@@ -250,7 +249,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_showall;
         private System.Windows.Forms.Button btn_search;
-        private System.Windows.Forms.ComboBox search_by;
         private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListView list_films;
@@ -263,5 +261,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ComboBox search_by;
     }
 }

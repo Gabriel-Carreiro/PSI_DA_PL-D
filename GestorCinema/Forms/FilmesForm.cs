@@ -237,5 +237,7 @@ namespace GestorCinema
             applicationContext.SaveChanges();
             LimparListView();
         }
+        }
     }
-}
+
+
