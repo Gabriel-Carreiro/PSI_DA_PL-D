@@ -38,9 +38,10 @@
             this.search_by = new System.Windows.Forms.ComboBox();
             this.btn_create = new System.Windows.Forms.Button();
             this.list_sessions = new System.Windows.Forms.ListView();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Id_session = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Data_session = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Hora_session = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Estado_session = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.list_rooms = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_showall = new System.Windows.Forms.Button();
@@ -160,9 +161,10 @@
             // list_sessions
             // 
             this.list_sessions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
+            this.Id_session,
+            this.Data_session,
+            this.Hora_session,
+            this.Estado_session});
             this.list_sessions.HideSelection = false;
             this.list_sessions.Location = new System.Drawing.Point(518, 86);
             this.list_sessions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -172,17 +174,21 @@
             this.list_sessions.UseCompatibleStateImageBehavior = false;
             this.list_sessions.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader2
+            // Id_session
             // 
-            this.columnHeader2.Text = "Data";
+            this.Id_session.Text = "Id";
             // 
-            // columnHeader3
+            // Data_session
             // 
-            this.columnHeader3.Text = "Hora";
+            this.Data_session.Text = "Data";
             // 
-            // columnHeader4
+            // Hora_session
             // 
-            this.columnHeader4.Text = "Estado";
+            this.Hora_session.Text = "Hora";
+            // 
+            // Estado_session
+            // 
+            this.Estado_session.Text = "Estado";
             // 
             // list_rooms
             // 
@@ -315,9 +321,9 @@
         private System.Windows.Forms.ColumnHeader Categoria;
         private System.Windows.Forms.ColumnHeader Estado;
         private System.Windows.Forms.Button btn_create;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader Data_session;
+        private System.Windows.Forms.ColumnHeader Hora_session;
+        private System.Windows.Forms.ColumnHeader Estado_session;
         private System.Windows.Forms.ComboBox search_by;
         private System.Windows.Forms.Label data;
         private System.Windows.Forms.Label preco;
@@ -325,5 +331,6 @@
         private System.Windows.Forms.DateTimePicker time;
         private System.Windows.Forms.ComboBox horarios;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ColumnHeader Id_session;
     }
 }

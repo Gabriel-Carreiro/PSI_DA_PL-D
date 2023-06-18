@@ -19,6 +19,7 @@ namespace GestorCinema
         private List<Filme> filmes;
         private List<Categoria> categorias;
         private List<Sala> salas;
+        private List<Sessao> sessoes;
 
         public SessoesForm()
         {
@@ -39,12 +40,42 @@ namespace GestorCinema
             //Criar lista para caregorias
             categorias = applicationContext.Categorias.ToList();
             //Criar lista para filmes em exibição
-            filmes = applicationContext.Filmes.ToList().FindAll(filme => filme.Estado).ToList();       
+            filmes = applicationContext.Filmes.ToList().FindAll(filme => filme.Estado).ToList();
+
+            //Colocar sessões na lista através de método
+            atualizar_sessoes();
 
             //Colocar salas na list_rooms
             list_rooms.DisplayMember = ("Id");
             list_rooms.DataSource = new List<Sala>(salas);
             list_rooms.SelectedIndex = -1;
+        }
+
+        //Método para atualizar lista de sessões
+        private void atualizar_sessoes()
+        {
+            limparSessoes();
+            //Criar lista para sessões
+            sessoes = applicationContext.Sessoes.ToList();
+            //Colocar sessões na ListView
+            foreach(Sessao sessao in sessoes)
+            {
+                ListViewItem item = new ListViewItem(sessao.Id.ToString());
+                item.SubItems.Add(sessao.DataHora.ToShortDateString());
+                item.SubItems.Add(sessao.DataHora.ToShortTimeString());
+                item.SubItems.Add(sessao.Filme.Estado.ToString());
+
+                list_sessions.Items.Add(item);
+            }
+        }
+
+        //Método para limpar lista de sessões
+        private void limparSessoes()
+        {
+            while(list_sessions.Items.Count > 0)
+            {
+                list_sessions.Items.RemoveAt(0);
+            }
         }
 
         //Método para mostrar possíveis horários das sessões
@@ -179,8 +210,8 @@ namespace GestorCinema
             {
                 MessageBox.Show("Faltam informações!");
             }
-            list_rooms.SelectedIndex = -1;
-            //list_rooms.Text = null;
+            atualizar_sessoes();
+            list_rooms.Text = null;
             list_films.Items.Clear();
         }
     }
