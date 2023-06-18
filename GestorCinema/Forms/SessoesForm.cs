@@ -199,12 +199,22 @@ namespace GestorCinema
                 //string data = time.Value.ToString().Substring(0, 10) + " " + horarios.Text;
                 DateTime dataHora = DateTime.Parse(time.Value.ToString().Substring(0, 10) + " " + horarios.Text.TrimStart());
 
-                //Criar sessão
-                Sessao sessao = new Sessao(dataHora, float.Parse(txt_preco.Text), filme, sala);
-                applicationContext.Sessoes.Add(sessao);
-                applicationContext.SaveChanges();
+                /* Criar sessão apenas se não existir uma sessão
+                 * à mesma hora e na mesma sala.
+                */
+                if(sessoes.FindAll(section => (section.Sala.Id == sala.Id) && (section.DataHora == dataHora)).Count > 0)
+                {
+                    MessageBox.Show("Já existe uma sessão nesta sala à hora que pretende");
+                }
+                else
+                {
+                    //Criar sessão
+                    Sessao sessao = new Sessao(dataHora, float.Parse(txt_preco.Text), filme, sala);
+                    applicationContext.Sessoes.Add(sessao);
+                    applicationContext.SaveChanges();
 
-                MessageBox.Show("Sessão criada!");
+                    MessageBox.Show("Sessão criada!");
+                }
             }
             else
             {
