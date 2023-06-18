@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.horarios = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_preco = new System.Windows.Forms.TextBox();
+            this.preco = new System.Windows.Forms.Label();
+            this.time = new System.Windows.Forms.DateTimePicker();
+            this.data = new System.Windows.Forms.Label();
             this.search_by = new System.Windows.Forms.ComboBox();
             this.btn_create = new System.Windows.Forms.Button();
             this.list_sessions = new System.Windows.Forms.ListView();
@@ -42,16 +48,22 @@
             this.txt_search = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.list_films = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Duracao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Categoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Estado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.horarios);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txt_preco);
+            this.groupBox1.Controls.Add(this.preco);
+            this.groupBox1.Controls.Add(this.time);
+            this.groupBox1.Controls.Add(this.data);
             this.groupBox1.Controls.Add(this.search_by);
             this.groupBox1.Controls.Add(this.btn_create);
             this.groupBox1.Controls.Add(this.list_sessions);
@@ -70,6 +82,56 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sessão";
+            // 
+            // horarios
+            // 
+            this.horarios.FormattingEnabled = true;
+            this.horarios.Location = new System.Drawing.Point(822, 53);
+            this.horarios.Name = "horarios";
+            this.horarios.Size = new System.Drawing.Size(89, 24);
+            this.horarios.TabIndex = 34;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(757, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 16);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "Horários";
+            // 
+            // txt_preco
+            // 
+            this.txt_preco.Location = new System.Drawing.Point(721, 23);
+            this.txt_preco.Name = "txt_preco";
+            this.txt_preco.Size = new System.Drawing.Size(100, 22);
+            this.txt_preco.TabIndex = 32;
+            // 
+            // preco
+            // 
+            this.preco.AutoSize = true;
+            this.preco.Location = new System.Drawing.Point(671, 29);
+            this.preco.Name = "preco";
+            this.preco.Size = new System.Drawing.Size(43, 16);
+            this.preco.TabIndex = 31;
+            this.preco.Text = "Preço";
+            // 
+            // time
+            // 
+            this.time.CustomFormat = "";
+            this.time.Location = new System.Drawing.Point(557, 53);
+            this.time.Name = "time";
+            this.time.Size = new System.Drawing.Size(194, 22);
+            this.time.TabIndex = 30;
+            // 
+            // data
+            // 
+            this.data.AutoSize = true;
+            this.data.Location = new System.Drawing.Point(515, 58);
+            this.data.Name = "data";
+            this.data.Size = new System.Drawing.Size(36, 16);
+            this.data.TabIndex = 29;
+            this.data.Text = "Data";
             // 
             // search_by
             // 
@@ -93,6 +155,7 @@
             this.btn_create.TabIndex = 6;
             this.btn_create.Text = "Criar Sessão";
             this.btn_create.UseVisualStyleBackColor = true;
+            this.btn_create.Click += new System.EventHandler(this.btn_create_Click);
             // 
             // list_sessions
             // 
@@ -124,16 +187,16 @@
             // list_rooms
             // 
             this.list_rooms.FormattingEnabled = true;
-            this.list_rooms.Location = new System.Drawing.Point(559, 40);
+            this.list_rooms.Location = new System.Drawing.Point(557, 21);
             this.list_rooms.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.list_rooms.Name = "list_rooms";
-            this.list_rooms.Size = new System.Drawing.Size(125, 24);
+            this.list_rooms.Size = new System.Drawing.Size(104, 24);
             this.list_rooms.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(517, 47);
+            this.label1.Location = new System.Drawing.Point(515, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 16);
             this.label1.TabIndex = 24;
@@ -181,11 +244,11 @@
             // list_films
             // 
             this.list_films.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
+            this.Id,
             this.Nome,
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader10});
+            this.Duracao,
+            this.Categoria,
+            this.Estado});
             this.list_films.HideSelection = false;
             this.list_films.Location = new System.Drawing.Point(16, 86);
             this.list_films.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -195,30 +258,30 @@
             this.list_films.UseCompatibleStateImageBehavior = false;
             this.list_films.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
+            // Id
             // 
-            this.columnHeader1.Text = "Id";
-            this.columnHeader1.Width = 39;
+            this.Id.Text = "Id";
+            this.Id.Width = 39;
             // 
             // Nome
             // 
             this.Nome.Text = "Nome";
             this.Nome.Width = 171;
             // 
-            // columnHeader8
+            // Duracao
             // 
-            this.columnHeader8.Text = "Duração";
-            this.columnHeader8.Width = 81;
+            this.Duracao.Text = "Duração";
+            this.Duracao.Width = 81;
             // 
-            // columnHeader9
+            // Categoria
             // 
-            this.columnHeader9.Text = "Categoria";
-            this.columnHeader9.Width = 101;
+            this.Categoria.Text = "Categoria";
+            this.Categoria.Width = 101;
             // 
-            // columnHeader10
+            // Estado
             // 
-            this.columnHeader10.Text = "Estado";
-            this.columnHeader10.Width = 63;
+            this.Estado.Text = "Estado";
+            this.Estado.Width = 63;
             // 
             // SessoesForm
             // 
@@ -246,15 +309,21 @@
         private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListView list_films;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader Id;
         private System.Windows.Forms.ColumnHeader Nome;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader Duracao;
+        private System.Windows.Forms.ColumnHeader Categoria;
+        private System.Windows.Forms.ColumnHeader Estado;
         private System.Windows.Forms.Button btn_create;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ComboBox search_by;
+        private System.Windows.Forms.Label data;
+        private System.Windows.Forms.Label preco;
+        private System.Windows.Forms.TextBox txt_preco;
+        private System.Windows.Forms.DateTimePicker time;
+        private System.Windows.Forms.ComboBox horarios;
+        private System.Windows.Forms.Label label2;
     }
 }

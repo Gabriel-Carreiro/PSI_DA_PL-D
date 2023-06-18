@@ -51,11 +51,11 @@
             this.tbBusca = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.listViewFilmes = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Duracao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Categoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Estado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -284,11 +284,11 @@
             // listViewFilmes
             // 
             this.listViewFilmes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
+            this.Id,
             this.Nome,
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader10});
+            this.Duracao,
+            this.Categoria,
+            this.Estado});
             this.listViewFilmes.FullRowSelect = true;
             this.listViewFilmes.HideSelection = false;
             this.listViewFilmes.Location = new System.Drawing.Point(325, 118);
@@ -300,30 +300,30 @@
             this.listViewFilmes.View = System.Windows.Forms.View.Details;
             this.listViewFilmes.SelectedIndexChanged += new System.EventHandler(this.listViewFilmes_SelectedIndexChanged);
             // 
-            // columnHeader1
+            // Id
             // 
-            this.columnHeader1.Text = "Id";
-            this.columnHeader1.Width = 39;
+            this.Id.Text = "Id";
+            this.Id.Width = 39;
             // 
             // Nome
             // 
             this.Nome.Text = "Nome";
             this.Nome.Width = 335;
             // 
-            // columnHeader8
+            // Duracao
             // 
-            this.columnHeader8.Text = "Duração";
-            this.columnHeader8.Width = 81;
+            this.Duracao.Text = "Duração";
+            this.Duracao.Width = 81;
             // 
-            // columnHeader9
+            // Categoria
             // 
-            this.columnHeader9.Text = "Categoria";
-            this.columnHeader9.Width = 101;
+            this.Categoria.Text = "Categoria";
+            this.Categoria.Width = 101;
             // 
-            // columnHeader10
+            // Estado
             // 
-            this.columnHeader10.Text = "Estado";
-            this.columnHeader10.Width = 91;
+            this.Estado.Text = "Estado";
+            this.Estado.Width = 91;
             // 
             // FilmesForm
             // 
@@ -345,7 +345,7 @@
 
         #endregion
         private System.Windows.Forms.ListView listViewFilmes;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader Id;
         private System.Windows.Forms.Button btAdicionarFilme;
         private System.Windows.Forms.ComboBox cbCategoriaFilme;
         private System.Windows.Forms.TextBox tbNomeFilme;
@@ -356,9 +356,9 @@
         private System.Windows.Forms.TextBox tbDuracaoFilme;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ColumnHeader Nome;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader Duracao;
+        private System.Windows.Forms.ColumnHeader Categoria;
+        private System.Windows.Forms.ColumnHeader Estado;
         private System.Windows.Forms.Button btMostarTodosFilmes;
         private System.Windows.Forms.Button btBuscarFilme;
         private System.Windows.Forms.TextBox tbBusca;

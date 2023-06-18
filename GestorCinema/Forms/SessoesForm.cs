@@ -23,6 +23,10 @@ namespace GestorCinema
         public SessoesForm()
         {
             InitializeComponent();
+            //Definir data mínima para a sessão - data atual
+            time.MinDate = DateTime.Now;
+            //Chamar método que mostra os possíveis horários para filmes
+            show_schedules();
             //chamar a groupbox no form1
             this.MyGroupBox = groupBox1;
             this.MyGroupBox.Dock = DockStyle.Fill;
@@ -38,9 +42,22 @@ namespace GestorCinema
             filmes = applicationContext.Filmes.ToList().FindAll(filme => filme.Estado).ToList();       
 
             //Colocar salas na list_rooms
-            list_rooms.DisplayMember = ("Nome");
+            list_rooms.DisplayMember = ("Id");
             list_rooms.DataSource = new List<Sala>(salas);
             list_rooms.SelectedIndex = -1;
+        }
+
+        //Método para mostrar possíveis horários das sessões
+        private void show_schedules()
+        {
+            TimeSpan timeSpan = TimeSpan.Zero;
+            TimeSpan inc = new TimeSpan(1, 0, 0);
+
+            do {
+                horarios.Items.Add(timeSpan.ToString().Substring(0, 5));
+                timeSpan += inc;
+
+            } while (timeSpan < TimeSpan.FromHours(24));
         }
 
         private void btn_showall_Click(object sender, EventArgs e)
@@ -123,6 +140,48 @@ namespace GestorCinema
                 //id, nome, duração e categoria são subitems do item filme
                 list_films.Items.Add(item);
             }
+        }
+
+        //Método para criar sessão
+        private void btn_create_Click(object sender, EventArgs e)
+        {
+            /* Para criar uma sessão é necessário:
+             * - Filme
+             * - Sala
+             * - Preço
+             * - Data
+             * - Hora
+            */
+            if(
+                (list_films.SelectedItems.Count == 1) &&
+                (!string.IsNullOrEmpty(list_rooms.Text)) &&
+                (!string.IsNullOrEmpty(txt_preco.Text)) &&
+                (time.Value != null) &&
+                (!string.IsNullOrEmpty(horarios.Text))
+                )
+            {
+                //Instanciar filme através do Id que foi selecionado na lista
+                Filme filme = filmes.Find(film => film.Id == int.Parse(list_films.SelectedItems[0].Text));
+                //Instanciar sala através do Id que foi selecionado na lista
+                Sala sala = salas.Find(room => room.Id == int.Parse(list_rooms.Text));
+                //Ir buscar a data e hora para a sessão
+                //string data = time.Value.ToString().Substring(0, 10) + " " + horarios.Text;
+                DateTime dataHora = DateTime.Parse(time.Value.ToString().Substring(0, 10) + " " + horarios.Text.TrimStart());
+
+                //Criar sessão
+                Sessao sessao = new Sessao(dataHora, float.Parse(txt_preco.Text), filme, sala);
+                applicationContext.Sessoes.Add(sessao);
+                applicationContext.SaveChanges();
+
+                MessageBox.Show("Sessão criada!");
+            }
+            else
+            {
+                MessageBox.Show("Faltam informações!");
+            }
+            list_rooms.SelectedIndex = -1;
+            //list_rooms.Text = null;
+            list_films.Items.Clear();
         }
     }
 }
