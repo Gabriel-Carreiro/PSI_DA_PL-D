@@ -19,8 +19,13 @@ namespace GestorCinema
         private AtendimentoForm formAtendimento;
         private FilmesForm formFilmes;
         private SessoesForm formSessoes;
+        private List<Sessao> sessoes;
+        private List<Filme> filmes;
+        private List<Categoria> categorias;
+        private List<Sala> salas;
+        private ApplicationContext applicationContext;
 
-        
+
         public PrincipalForm()
         {
             InitializeComponent();
@@ -47,11 +52,11 @@ namespace GestorCinema
         private void btAtendimento_Click(object sender, EventArgs e)
         {
             clearPanel();
+            //Se o formulário já existe fecha para que nao mantenha dados desatualizados e para nao criar forms repetidos
+            this.formAtendimento?.Close();
 
-            if (this.formAtendimento == null)
-            {
-                this.formAtendimento = new AtendimentoForm();
-            }
+            this.formAtendimento = new AtendimentoForm();
+
             groupBoxSessoesDia.Visible = false;
             //Criar um controlodador Tab
             TabControl tabControl = new TabControl();
@@ -82,13 +87,11 @@ namespace GestorCinema
             //Limpar painel
             clearPanel();
 
-            //Se o formulário clientes ainda não foi aberto
-            if (this.formClientes == null)
-            {
-                //Instanciar o formulário de clientes
-                this.formClientes = new ClientesForm();
-            }
+            //Se o formulário já existe fecha para que nao mantenha dados desatualizados e para nao criar forms repetidos
+            this.formClientes?.Close();
 
+            //Instanciar o formulário de clientes
+            this.formClientes = new ClientesForm();
             groupBoxSessoesDia.Visible = false;
             //Instancia GroupBox que irá corresponder ao GroupBox do formulário Clientes
             GroupBox groupBox = this.formClientes.MyGroupBox;
@@ -103,10 +106,10 @@ namespace GestorCinema
         private void btFuncionarios_Click(object sender, EventArgs e)
         {
             clearPanel();
-            if (this.formFuncionarios == null)
-            {
-                this.formFuncionarios = new FuncionariosForm();
-            }
+            //Se o formulário já existe fecha para que nao mantenha dados desatualizados e para nao criar forms repetidos
+            this.formFuncionarios?.Close();
+
+            this.formFuncionarios = new FuncionariosForm();
 
             groupBoxSessoesDia.Visible = false;
             GroupBox groupBox = this.formFuncionarios.MyGroupBox;
@@ -117,10 +120,11 @@ namespace GestorCinema
         private void btFilmes_Click(object sender, EventArgs e)
         {
             clearPanel();
-            if (this.formFilmes == null)
-            {
-                this.formFilmes = new FilmesForm();
-            }
+            //Se o formulário já existe fecha para que nao mantenha dados desatualizados e para nao criar forms repetidos
+            this.formFilmes?.Close();
+           
+            this.formFilmes = new FilmesForm();
+
 
             groupBoxSessoesDia.Visible = false;
             GroupBox groupBox = this.formFilmes.MyGroupBox;
@@ -131,10 +135,11 @@ namespace GestorCinema
         private void btSessoes_Click(object sender, EventArgs e)
         {
             clearPanel();
-            if (this.formSessoes == null)
-            {
-                this.formSessoes = new SessoesForm();
-            }
+            //Se o formulário já existe fecha para que nao mantenha dados desatualizados e para nao criar forms repetidos
+            this.formSessoes?.Close();
+
+            this.formSessoes = new SessoesForm();
+
 
             groupBoxSessoesDia.Visible = false;
             GroupBox groupBox = this.formSessoes.MyGroupBox;
@@ -145,10 +150,10 @@ namespace GestorCinema
         private void btInformacoes_Click(object sender, EventArgs e)
         {
             clearPanel();
-            if (this.formInformacoes == null)
-            {
-                this.formInformacoes = new InformacoesForm();
-            }
+            //Se o formulário já existe fecha para que nao mantenha dados desatualizados e para nao criar forms repetidos
+            this.formInformacoes?.Close();
+
+            this.formInformacoes = new InformacoesForm();
 
             groupBoxSessoesDia.Visible = false;
             GroupBox groupBox = this.formInformacoes.MyGroupBox;
@@ -161,6 +166,44 @@ namespace GestorCinema
             //Limpar painel
             clearPanel();
             groupBoxSessoesDia.Visible = true;
+        }
+
+        private void listViewFilmes_VisibleChanged(object sender, EventArgs e)
+        {
+            //limpar sessoes
+            while (listViewFilmes.Items.Count > 0)
+            {
+                listViewFilmes.Items.RemoveAt(0);
+            }
+            //Iniciar o applicationContext e criar lista para sessões
+            applicationContext = new ApplicationContext();
+            sessoes = applicationContext.Sessoes.ToList();
+            //Criar lista para filmes em exibição, categorias e salas
+            filmes = applicationContext.Filmes.ToList().FindAll(filme => filme.Estado).ToList();
+            categorias = applicationContext.Categorias.ToList();
+            salas = applicationContext.Salas.ToList();
+
+
+            //Colocar sessões na ListView
+            foreach (Sessao sessao in sessoes)
+            {
+                if (sessao.DataHora.Date == DateTime.Now.Date){
+                    ListViewItem item = new ListViewItem(sessao.Id.ToString());
+                    item.SubItems.Add(sessao.Filme.Nome.ToString());
+                    item.SubItems.Add(sessao.Filme.Duracao);
+                    item.SubItems.Add(sessao.Filme.Categoria.Nome.ToString());
+                    item.SubItems.Add(sessao.Filme.Estado.ToString());
+                    item.SubItems.Add(sessao.Sala.ToString());
+                    item.SubItems.Add(sessao.DataHora.ToShortTimeString());
+
+                    listViewFilmes.Items.Add(item);
+                }
+            }
+        }
+
+        private void btComprarBilhete_Click(object sender, EventArgs e)
+        {
+            btAtendimento_Click(sender, e);
         }
     }
 }

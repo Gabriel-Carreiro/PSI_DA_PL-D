@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -10,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Collections.Specialized.BitVector32;
+using System.Windows.Forms.VisualStyles;
 
 namespace GestorCinema
 {
@@ -22,6 +25,8 @@ namespace GestorCinema
         private List<Sessao> sessoes;
         private List<Bilhete> bilhetes;
         private TabControl control;
+        private ClientesForm cadastro;
+        private List<Bilhete> lugaresEscolhidos;
 
         public AtendimentoForm()
         {
@@ -55,6 +60,8 @@ namespace GestorCinema
                 item.SubItems.Add(cliente.Nif);
                 item.SubItems.Add(cliente.Telefone);
                 item.SubItems.Add(cliente.Morada);
+                item.SubItems.Add(cliente.BilhetesAdiquiridos.ToString());
+                item.SubItems.Add(cliente.TotalGasto.ToString());
 
                 list_clients.Items.Add(item);
             }
@@ -69,8 +76,10 @@ namespace GestorCinema
         }
 
         //Essa função vai abrir a tab2 e criar o numero de cadeiras conforme o numero salvo na sala selecionada
-        private void SelecionarSala(Sessao sessao, Cliente cliente)
+        private void SelecionarSala(Sessao sessao, Cliente cliente = null)
         {
+            lugaresEscolhidos = new List<Bilhete>();
+            labelTotal.Text = lugaresEscolhidos.Count.ToString();
 
             tableLayoutPanel1.SuspendLayout();
 
@@ -88,12 +97,17 @@ namespace GestorCinema
                     button.Text = (char)(i + 65) + "" + (j + 1);
                     button.BackgroundImageLayout = ImageLayout.Zoom;
                     string lugar = (char)(i + 65) + "" + (j + 1);
-                    //Se lugar não estiver ocupado mostra a cadeira
-                    if (bilhetes.FindAll(bilhete => bilhete.Lugar == lugar).Count == 0)
+                    //Se lugar não estiver ocupado mostra a cadeira verde
+                    if (bilhetes.FindAll(bilhete => bilhete.Lugar == lugar && bilhete.Sessao.Id == sessao.Id).Count == 0)
                     {
-                        button.BackgroundImage = Image.FromFile("E:\\OneDrive - IPLeiria\\1º Ano\\S2\\Desenvolvimento de Aplicações\\Projeto\\ProjetoDA\\GestorCinema\\cadeira.png");
+                        button.BackgroundImage = Image.FromFile("C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ProjetoDA\\GestorCinema\\cadeiraVerde.png");
                     }
-                    button.Click += delegate(object sender, EventArgs e) { LugarClicked(sender, e, sessao, cliente); };
+                    //Se lugar estiver ocupado mostra a cadeira vermelha
+                    else
+                    {
+                        button.BackgroundImage = Image.FromFile("C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ProjetoDA\\GestorCinema\\cadeira.png");
+                    }
+                    button.Click += delegate(object sender, EventArgs e) { LugarClicked(sender, e, sessao, cliente, lugaresEscolhidos); };
                     tableLayoutPanel1.Controls.Add(button, j, i);
                 }
             }
@@ -110,59 +124,150 @@ namespace GestorCinema
         }
 
         //Captura as cordenadas do botao que foi carregado
-        private void LugarClicked(Object sender, EventArgs e, Sessao session, Cliente client)
+        private void LugarClicked(Object sender, EventArgs e, Sessao session, Cliente client, List<Bilhete> lugaresEscolhidos)
         {
             LugarButton button = (LugarButton)sender;
-            MessageBox.Show("X: " + button.X + " Y: " + button.Y);
             string lugar = (char)(button.X + 65) + "" + (button.Y + 1);
 
             //Se o lugar estiver ocupado por alguém não poderá criar o bilhete
-            if (bilhetes.FindAll(bilhete => bilhete.Lugar == lugar).Count > 0)
+            if (bilhetes.FindAll(bilhete => bilhete.Lugar == lugar && bilhete.Sessao.Id == session.Id).Count > 0)
             {
                 MessageBox.Show("Este lugar já está ocupado!");
             }
             else
             {
-                Bilhete bilhete = new Bilhete(session, lugar, client);
+                // Se o cliente for anonimo
+                if (client == null)
+                {
+                    //Pergunta se deseja criar um cadastro
+                    DialogResult result = MessageBox.Show("Deseja criar um cadastro?", "Confirmação", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        cadastrarCliente();
+                        clientes = applicationContext.Pessoas.OfType<Cliente>().ToList();
+                        client = clientes.Last();
+                    }
+                    //Se nao quiser se cadastrar cria um bilhete sem cliente
+                    else
+                    {
+                        Bilhete bilhete = new Bilhete(session, lugar);
+                        if (!lugaresEscolhidos.Any(lugarEsc => lugarEsc.Lugar == lugar))
+                        {
+                            applicationContext.Bilhetes.Add(bilhete);
+                            lugaresEscolhidos.Add(bilhete);
+                            labelTotal.Text = "Total lugares: " + lugaresEscolhidos.Count.ToString();
+                            labelLugares.Text += bilhete.Lugar + " ";
+                        }
+                        
+                    }
+                }
+                //Se cliente nao for nulo cria um bilhete passando o cliente como parametro
+                if (client != null)
+                {
+                    Bilhete bilhete = new Bilhete(session, lugar, client);
 
-                applicationContext.Bilhetes.Add(bilhete);
-                applicationContext.SaveChanges();
-                MessageBox.Show("Bilhete Criado");
+                    if (!lugaresEscolhidos.Any(lugarEsc => lugarEsc.Lugar == lugar))
+                    {
+                        applicationContext.Bilhetes.Add(bilhete);
+                        lugaresEscolhidos.Add(bilhete);
+                        labelTotal.Text = "Total lugares: " + lugaresEscolhidos.Count.ToString();
+                        labelLugares.Text += bilhete.Lugar + " ";
+                    }
+                }
+
                 atualizar_bilhetes();
-                export_to_txt(bilhete);
+                applicationContext.Pessoas.Load();
+
             }
-            //Volta para a TabPage1
-            control.SelectedIndex = 0;
         }
 
-        //Método para exportar informação de bilhete para pdf
-        private void export_to_txt(Bilhete bilhete)
+        private void cadastrarCliente()
         {
-            string filePath = "bilhete_" + bilhete.Cliente.Nome + ".txt";
-            string information = "Cliente["
-                + bilhete.Cliente.Id.ToString()
-                + "]: "
-                + bilhete.Cliente.Nome
-                + "\tFilme["
-                + bilhete.Sessao.Filme.Id.ToString()
-                + "]: "
-                + bilhete.Sessao.Filme.Nome
-                + Environment.NewLine
-                + "Data: "
-                + bilhete.Sessao.DataHora.ToShortDateString()
-                + "\tHora: "
-                + bilhete.Sessao.DataHora.ToShortTimeString()
-                + Environment.NewLine
-                + "Sala["
-                + bilhete.Sessao.Sala.Id.ToString()
-                + "]: "
-                + bilhete.Sessao.Sala.Nome
-                + "\t\tLugar: "
-                + bilhete.Lugar
-                + Environment.NewLine
-                + "Funcionário[1]: Admin";
+            this.cadastro = new ClientesForm();
+            cadastro.ShowDialog();
 
-            File.WriteAllText(filePath, information);
+        }
+
+        //Método para exportar informação de bilhete para txt
+        private void export_to_txt(List<Bilhete> bilhetes)
+        {
+            foreach(Bilhete bilhete in bilhetes)
+            {
+                if (bilhete.Cliente != null)
+                {
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    // Define as opções do diálogo
+                    saveFileDialog.FileName = "bilhete_" + bilhete.Cliente.Nome + ".txt";
+                    saveFileDialog.Filter = "Arquivo de Texto|*.txt";
+
+                    // Exibe o diálogo e verifica se o usuário pressionou o botão "Salvar"
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string filePath = saveFileDialog.FileName;
+                        string information = "Cliente["
+                            + bilhete.Cliente.Id.ToString()
+                            + "]: "
+                            + bilhete.Cliente.Nome
+                            + "\tFilme["
+                            + bilhete.Sessao.Filme.Id.ToString()
+                            + "]: "
+                            + bilhete.Sessao.Filme.Nome
+                            + Environment.NewLine
+                            + "Data: "
+                            + bilhete.Sessao.DataHora.ToShortDateString()
+                            + "\tHora: "
+                            + bilhete.Sessao.DataHora.ToShortTimeString()
+                            + Environment.NewLine
+                            + "Sala["
+                            + bilhete.Sessao.Sala.Id.ToString()
+                            + "]: "
+                            + bilhete.Sessao.Sala.Nome
+                            + "\t\tLugar: "
+                            + bilhete.Lugar
+                            + Environment.NewLine
+                            + "Funcionário[1]: Admin";
+
+                        File.WriteAllText(filePath, information);
+                        MessageBox.Show("Bilhete salvo com sucesso");
+                    }
+                }
+                else
+                {
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    // Define as opções do diálogo
+                    saveFileDialog.FileName = "bilhete_" + ".txt";
+                    saveFileDialog.Filter = "Arquivo de Texto|*.txt";
+
+                    // Exibe o diálogo e verifica se o usuário pressionou o botão "Salvar"
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string filePath = saveFileDialog.FileName;
+                        string information = "Cliente[0]: Anonimo"
+                            + "\tFilme["
+                            + bilhete.Sessao.Filme.Id.ToString()
+                            + "]: "
+                            + bilhete.Sessao.Filme.Nome
+                            + Environment.NewLine
+                            + "Data: "
+                            + bilhete.Sessao.DataHora.ToShortDateString()
+                            + "\tHora: "
+                            + bilhete.Sessao.DataHora.ToShortTimeString()
+                            + Environment.NewLine
+                            + "Sala["
+                            + bilhete.Sessao.Sala.Id.ToString()
+                            + "]: "
+                            + bilhete.Sessao.Sala.Nome
+                            + "\t\tLugar: "
+                            + bilhete.Lugar
+                            + Environment.NewLine
+                            + "Funcionário[1]: Admin";
+
+                        File.WriteAllText(filePath, information);
+                        MessageBox.Show("Bilhete salvo com sucesso");
+                    }
+                }
+            }
+            
         }
 
         //Método para atualizar lista de bilhetes
@@ -179,7 +284,7 @@ namespace GestorCinema
             if(list_sessions.SelectedItems.Count == 1)
             {
                 Sessao sessao = sessoes.Find(session => session.Id == int.Parse(list_sessions.SelectedItems[0].Text));
-                SelecionarSala(sessao,new Cliente());
+                SelecionarSala(sessao);
             }
         }
 
@@ -259,6 +364,23 @@ namespace GestorCinema
             {
                 MessageBox.Show("Nada para pesquisar.");
             }
+        }
+
+        private void list_clients_VisibleChanged(object sender, EventArgs e)
+        {
+            clean_clients();
+            show_clients(clientes);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            applicationContext.SaveChanges();
+            export_to_txt(lugaresEscolhidos);
+            atualizar_bilhetes();
+            applicationContext.Pessoas.Load();
+            MessageBox.Show("Compra realizada");
+            //Volta para a TabPage1
+            control.SelectedIndex = 0;
         }
     }
 }

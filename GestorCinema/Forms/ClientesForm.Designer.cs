@@ -72,7 +72,6 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Clientes";
-            this.groupBox1.Visible = false;
             // 
             // gBCliente
             // 
@@ -305,8 +304,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btMostrarTodosClientes;
         private System.Windows.Forms.ListView listViewClientes;
         private System.Windows.Forms.ColumnHeader columnHeader1;
@@ -332,5 +329,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox gBCliente;
         private System.Windows.Forms.Button btAtualizarCliente;
+        public System.Windows.Forms.GroupBox groupBox1;
     }
 }

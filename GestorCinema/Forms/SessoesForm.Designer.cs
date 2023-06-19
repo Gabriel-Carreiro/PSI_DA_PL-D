@@ -54,11 +54,15 @@
             this.Duracao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Categoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Estado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label3 = new System.Windows.Forms.Label();
+            this.Filme_session = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Sala_session = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.horarios);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txt_preco);
@@ -87,7 +91,7 @@
             // horarios
             // 
             this.horarios.FormattingEnabled = true;
-            this.horarios.Location = new System.Drawing.Point(822, 53);
+            this.horarios.Location = new System.Drawing.Point(376, 63);
             this.horarios.Name = "horarios";
             this.horarios.Size = new System.Drawing.Size(89, 24);
             this.horarios.TabIndex = 34;
@@ -95,7 +99,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(757, 58);
+            this.label2.Location = new System.Drawing.Point(311, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 16);
             this.label2.TabIndex = 33;
@@ -103,7 +107,7 @@
             // 
             // txt_preco
             // 
-            this.txt_preco.Location = new System.Drawing.Point(721, 23);
+            this.txt_preco.Location = new System.Drawing.Point(365, 27);
             this.txt_preco.Name = "txt_preco";
             this.txt_preco.Size = new System.Drawing.Size(100, 22);
             this.txt_preco.TabIndex = 32;
@@ -111,7 +115,7 @@
             // preco
             // 
             this.preco.AutoSize = true;
-            this.preco.Location = new System.Drawing.Point(671, 29);
+            this.preco.Location = new System.Drawing.Point(315, 33);
             this.preco.Name = "preco";
             this.preco.Size = new System.Drawing.Size(43, 16);
             this.preco.TabIndex = 31;
@@ -120,7 +124,7 @@
             // time
             // 
             this.time.CustomFormat = "";
-            this.time.Location = new System.Drawing.Point(557, 53);
+            this.time.Location = new System.Drawing.Point(111, 63);
             this.time.Name = "time";
             this.time.Size = new System.Drawing.Size(194, 22);
             this.time.TabIndex = 30;
@@ -128,7 +132,7 @@
             // data
             // 
             this.data.AutoSize = true;
-            this.data.Location = new System.Drawing.Point(515, 58);
+            this.data.Location = new System.Drawing.Point(69, 68);
             this.data.Name = "data";
             this.data.Size = new System.Drawing.Size(36, 16);
             this.data.TabIndex = 29;
@@ -141,7 +145,7 @@
             "Id do Filme",
             "Nome",
             "Categoria"});
-            this.search_by.Location = new System.Drawing.Point(105, 39);
+            this.search_by.Location = new System.Drawing.Point(143, 106);
             this.search_by.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.search_by.Name = "search_by";
             this.search_by.Size = new System.Drawing.Size(106, 24);
@@ -149,7 +153,7 @@
             // 
             // btn_create
             // 
-            this.btn_create.Location = new System.Drawing.Point(800, 461);
+            this.btn_create.Location = new System.Drawing.Point(410, 461);
             this.btn_create.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_create.Name = "btn_create";
             this.btn_create.Size = new System.Drawing.Size(112, 23);
@@ -164,12 +168,15 @@
             this.Id_session,
             this.Data_session,
             this.Hora_session,
-            this.Estado_session});
+            this.Estado_session,
+            this.Filme_session,
+            this.Sala_session});
+            this.list_sessions.FullRowSelect = true;
             this.list_sessions.HideSelection = false;
-            this.list_sessions.Location = new System.Drawing.Point(518, 86);
+            this.list_sessions.Location = new System.Drawing.Point(540, 149);
             this.list_sessions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.list_sessions.Name = "list_sessions";
-            this.list_sessions.Size = new System.Drawing.Size(393, 365);
+            this.list_sessions.Size = new System.Drawing.Size(371, 302);
             this.list_sessions.TabIndex = 26;
             this.list_sessions.UseCompatibleStateImageBehavior = false;
             this.list_sessions.View = System.Windows.Forms.View.Details;
@@ -193,7 +200,7 @@
             // list_rooms
             // 
             this.list_rooms.FormattingEnabled = true;
-            this.list_rooms.Location = new System.Drawing.Point(557, 21);
+            this.list_rooms.Location = new System.Drawing.Point(111, 31);
             this.list_rooms.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.list_rooms.Name = "list_rooms";
             this.list_rooms.Size = new System.Drawing.Size(104, 24);
@@ -202,7 +209,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(515, 28);
+            this.label1.Location = new System.Drawing.Point(69, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 16);
             this.label1.TabIndex = 24;
@@ -210,7 +217,7 @@
             // 
             // btn_showall
             // 
-            this.btn_showall.Location = new System.Drawing.Point(384, 461);
+            this.btn_showall.Location = new System.Drawing.Point(16, 461);
             this.btn_showall.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_showall.Name = "btn_showall";
             this.btn_showall.Size = new System.Drawing.Size(112, 23);
@@ -221,7 +228,7 @@
             // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(421, 41);
+            this.btn_search.Location = new System.Drawing.Point(447, 107);
             this.btn_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(75, 23);
@@ -232,20 +239,20 @@
             // 
             // txt_search
             // 
-            this.txt_search.Location = new System.Drawing.Point(217, 40);
+            this.txt_search.Location = new System.Drawing.Point(255, 107);
             this.txt_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_search.Name = "txt_search";
-            this.txt_search.Size = new System.Drawing.Size(198, 22);
+            this.txt_search.Size = new System.Drawing.Size(186, 22);
             this.txt_search.TabIndex = 2;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 43);
+            this.label5.Location = new System.Drawing.Point(12, 109);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 16);
+            this.label5.Size = new System.Drawing.Size(122, 16);
             this.label5.TabIndex = 19;
-            this.label5.Text = "Pesquisar por";
+            this.label5.Text = "Pesquisar filme por";
             // 
             // list_films
             // 
@@ -255,11 +262,12 @@
             this.Duracao,
             this.Categoria,
             this.Estado});
+            this.list_films.FullRowSelect = true;
             this.list_films.HideSelection = false;
-            this.list_films.Location = new System.Drawing.Point(16, 86);
+            this.list_films.Location = new System.Drawing.Point(16, 149);
             this.list_films.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.list_films.Name = "list_films";
-            this.list_films.Size = new System.Drawing.Size(480, 365);
+            this.list_films.Size = new System.Drawing.Size(504, 302);
             this.list_films.TabIndex = 18;
             this.list_films.UseCompatibleStateImageBehavior = false;
             this.list_films.View = System.Windows.Forms.View.Details;
@@ -288,6 +296,23 @@
             // 
             this.Estado.Text = "Estado";
             this.Estado.Width = 63;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(557, 129);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 16);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "Sessões";
+            // 
+            // Filme_session
+            // 
+            this.Filme_session.Text = "Filme";
+            // 
+            // Sala_session
+            // 
+            this.Sala_session.Text = "Sala";
             // 
             // SessoesForm
             // 
@@ -332,5 +357,8 @@
         private System.Windows.Forms.ComboBox horarios;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ColumnHeader Id_session;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ColumnHeader Filme_session;
+        private System.Windows.Forms.ColumnHeader Sala_session;
     }
 }

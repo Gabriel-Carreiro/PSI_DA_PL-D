@@ -175,6 +175,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="cadeira.png" />
+    <Content Include="cadeiraSelecionada.png" />
+    <Content Include="cadeiraVerde.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -54,6 +55,7 @@ namespace GestorCinema
             //adiciona o funcionario a base de dados
             applicationContext.Pessoas.Add(funcionarioNovo);
             applicationContext.SaveChanges();
+            applicationContext.Pessoas.Load();
             MessageBox.Show("Funcionario salvo");
             LimparFormulario();
         }
@@ -191,6 +193,7 @@ namespace GestorCinema
 
             //atualizar o funcionario na base de dados
             applicationContext.SaveChanges();
+            applicationContext.Pessoas.Load();
             LimparListView();
         }
 
@@ -206,7 +209,7 @@ namespace GestorCinema
                 {
                     applicationContext.Pessoas.Remove(funcionarioRemovido);
                     applicationContext.SaveChanges();
-                    funcionarios = applicationContext.Pessoas.OfType<Funcionario>().ToList();
+                    applicationContext.Pessoas.Load();
                     LimparListView();
                     MessageBox.Show("Funcionario removido com sucesso");
                 }

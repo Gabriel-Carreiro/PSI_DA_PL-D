@@ -33,6 +33,7 @@ namespace GestorCinema
             Sessao = sessao;
             Lugar = lugar;
             Estado = StatusValidade.Ativo;
+            cliente.AdicionarBilhete(sessao);
         }
 
         public Bilhete() { }

@@ -54,7 +54,10 @@
             this.TabAtendimento = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelLugares = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.TabAtendimento.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -74,11 +77,11 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.date);
             this.groupBox1.Controls.Add(this.list_films);
-            this.groupBox1.Location = new System.Drawing.Point(2, 2);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(3, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(674, 385);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(899, 474);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Atendimento";
@@ -90,11 +93,12 @@
             this.Hora,
             this.Sala,
             this.Preco});
+            this.list_sessions.FullRowSelect = true;
             this.list_sessions.HideSelection = false;
-            this.list_sessions.Location = new System.Drawing.Point(17, 81);
-            this.list_sessions.Margin = new System.Windows.Forms.Padding(2);
+            this.list_sessions.Location = new System.Drawing.Point(23, 100);
+            this.list_sessions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.list_sessions.Name = "list_sessions";
-            this.list_sessions.Size = new System.Drawing.Size(210, 277);
+            this.list_sessions.Size = new System.Drawing.Size(279, 340);
             this.list_sessions.TabIndex = 15;
             this.list_sessions.UseCompatibleStateImageBehavior = false;
             this.list_sessions.View = System.Windows.Forms.View.Details;
@@ -118,10 +122,10 @@
             // 
             // btClienteAnonimo
             // 
-            this.btClienteAnonimo.Location = new System.Drawing.Point(432, 362);
-            this.btClienteAnonimo.Margin = new System.Windows.Forms.Padding(2);
+            this.btClienteAnonimo.Location = new System.Drawing.Point(576, 446);
+            this.btClienteAnonimo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btClienteAnonimo.Name = "btClienteAnonimo";
-            this.btClienteAnonimo.Size = new System.Drawing.Size(104, 19);
+            this.btClienteAnonimo.Size = new System.Drawing.Size(139, 23);
             this.btClienteAnonimo.TabIndex = 14;
             this.btClienteAnonimo.Text = "Cliente anonimo";
             this.btClienteAnonimo.UseVisualStyleBackColor = true;
@@ -129,10 +133,10 @@
             // 
             // btSelecionarCliente
             // 
-            this.btSelecionarCliente.Location = new System.Drawing.Point(550, 362);
-            this.btSelecionarCliente.Margin = new System.Windows.Forms.Padding(2);
+            this.btSelecionarCliente.Location = new System.Drawing.Point(733, 446);
+            this.btSelecionarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btSelecionarCliente.Name = "btSelecionarCliente";
-            this.btSelecionarCliente.Size = new System.Drawing.Size(104, 19);
+            this.btSelecionarCliente.Size = new System.Drawing.Size(139, 23);
             this.btSelecionarCliente.TabIndex = 13;
             this.btSelecionarCliente.Text = "Selecionar cliente";
             this.btSelecionarCliente.UseVisualStyleBackColor = true;
@@ -148,14 +152,16 @@
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7});
+            this.list_clients.FullRowSelect = true;
             this.list_clients.HideSelection = false;
-            this.list_clients.Location = new System.Drawing.Point(273, 81);
-            this.list_clients.Margin = new System.Windows.Forms.Padding(2);
+            this.list_clients.Location = new System.Drawing.Point(364, 100);
+            this.list_clients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.list_clients.Name = "list_clients";
-            this.list_clients.Size = new System.Drawing.Size(381, 277);
+            this.list_clients.Size = new System.Drawing.Size(507, 340);
             this.list_clients.TabIndex = 11;
             this.list_clients.UseCompatibleStateImageBehavior = false;
             this.list_clients.View = System.Windows.Forms.View.Details;
+            this.list_clients.VisibleChanged += new System.EventHandler(this.list_clients_VisibleChanged);
             // 
             // columnHeader1
             // 
@@ -194,10 +200,10 @@
             // 
             // search
             // 
-            this.search.Location = new System.Drawing.Point(592, 50);
-            this.search.Margin = new System.Windows.Forms.Padding(2);
+            this.search.Location = new System.Drawing.Point(789, 62);
+            this.search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(61, 19);
+            this.search.Size = new System.Drawing.Size(81, 23);
             this.search.TabIndex = 10;
             this.search.Text = "Buscar";
             this.search.UseVisualStyleBackColor = true;
@@ -205,57 +211,54 @@
             // 
             // search_for
             // 
-            this.search_for.Location = new System.Drawing.Point(336, 50);
-            this.search_for.Margin = new System.Windows.Forms.Padding(2);
+            this.search_for.Location = new System.Drawing.Point(448, 62);
+            this.search_for.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.search_for.Name = "search_for";
-            this.search_for.Size = new System.Drawing.Size(253, 20);
+            this.search_for.Size = new System.Drawing.Size(336, 22);
             this.search_for.TabIndex = 8;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(271, 52);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(361, 64);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.Size = new System.Drawing.Size(68, 16);
             this.label3.TabIndex = 7;
             this.label3.Text = "Pesquisar";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 60);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(19, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.Size = new System.Drawing.Size(40, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "Filme";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 26);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(19, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.Size = new System.Drawing.Size(36, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "Data";
             // 
             // date
             // 
-            this.date.Location = new System.Drawing.Point(76, 22);
-            this.date.Margin = new System.Windows.Forms.Padding(2);
+            this.date.Location = new System.Drawing.Point(101, 27);
+            this.date.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(151, 20);
+            this.date.Size = new System.Drawing.Size(200, 22);
             this.date.TabIndex = 1;
             // 
             // list_films
             // 
             this.list_films.FormattingEnabled = true;
-            this.list_films.Location = new System.Drawing.Point(76, 54);
-            this.list_films.Margin = new System.Windows.Forms.Padding(2);
+            this.list_films.Location = new System.Drawing.Point(101, 66);
+            this.list_films.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.list_films.Name = "list_films";
-            this.list_films.Size = new System.Drawing.Size(151, 21);
+            this.list_films.Size = new System.Drawing.Size(200, 24);
             this.list_films.TabIndex = 0;
             this.list_films.SelectedIndexChanged += new System.EventHandler(this.list_films_SelectedIndexChanged);
             // 
@@ -263,39 +266,62 @@
             // 
             this.TabAtendimento.Controls.Add(this.tabPage1);
             this.TabAtendimento.Controls.Add(this.tabPage2);
-            this.TabAtendimento.Location = new System.Drawing.Point(138, 33);
-            this.TabAtendimento.Margin = new System.Windows.Forms.Padding(2);
+            this.TabAtendimento.Location = new System.Drawing.Point(184, 41);
+            this.TabAtendimento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TabAtendimento.Name = "TabAtendimento";
             this.TabAtendimento.SelectedIndex = 0;
-            this.TabAtendimento.Size = new System.Drawing.Size(688, 418);
+            this.TabAtendimento.Size = new System.Drawing.Size(917, 514);
             this.TabAtendimento.TabIndex = 7;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(680, 392);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage1.Size = new System.Drawing.Size(909, 485);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.labelLugares);
+            this.tabPage2.Controls.Add(this.labelTotal);
+            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.tableLayoutPanel1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(680, 392);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage2.Size = new System.Drawing.Size(909, 485);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // labelTotal
+            // 
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Location = new System.Drawing.Point(721, 456);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(92, 16);
+            this.labelTotal.TabIndex = 8;
+            this.labelTotal.Text = "Total lugares: ";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(828, 453);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Comprar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoScroll = true;
             this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -308,21 +334,30 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(682, 394);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(909, 450);
             this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // labelLugares
+            // 
+            this.labelLugares.AutoSize = true;
+            this.labelLugares.Location = new System.Drawing.Point(6, 456);
+            this.labelLugares.Name = "labelLugares";
+            this.labelLugares.Size = new System.Drawing.Size(128, 16);
+            this.labelLugares.TabIndex = 10;
+            this.labelLugares.Text = "Lugares escolhidos:";
             // 
             // AtendimentoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 462);
+            this.ClientSize = new System.Drawing.Size(1116, 569);
             this.Controls.Add(this.TabAtendimento);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AtendimentoForm";
             this.Text = "Atendimento";
             this.groupBox1.ResumeLayout(false);
@@ -330,6 +365,7 @@
             this.TabAtendimento.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -362,5 +398,8 @@
         private System.Windows.Forms.ColumnHeader Hora;
         private System.Windows.Forms.ColumnHeader Sala;
         private System.Windows.Forms.ColumnHeader Preco;
+        private System.Windows.Forms.Label labelTotal;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelLugares;
     }
 }

@@ -40,7 +40,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBoxSessoesDia = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btComprarBilhete = new System.Windows.Forms.Button();
             this.btMostarTodosFilmes = new System.Windows.Forms.Button();
             this.btBuscarFilme = new System.Windows.Forms.Button();
             this.tbBusca = new System.Windows.Forms.TextBox();
@@ -172,7 +172,7 @@
             // 
             // groupBoxSessoesDia
             // 
-            this.groupBoxSessoesDia.Controls.Add(this.button1);
+            this.groupBoxSessoesDia.Controls.Add(this.btComprarBilhete);
             this.groupBoxSessoesDia.Controls.Add(this.btMostarTodosFilmes);
             this.groupBoxSessoesDia.Controls.Add(this.btBuscarFilme);
             this.groupBoxSessoesDia.Controls.Add(this.tbBusca);
@@ -185,14 +185,15 @@
             this.groupBoxSessoesDia.TabStop = false;
             this.groupBoxSessoesDia.Text = "Sessoes do dia";
             // 
-            // button1
+            // btComprarBilhete
             // 
-            this.button1.Location = new System.Drawing.Point(740, 461);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Selecionar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btComprarBilhete.Location = new System.Drawing.Point(711, 457);
+            this.btComprarBilhete.Name = "btComprarBilhete";
+            this.btComprarBilhete.Size = new System.Drawing.Size(141, 32);
+            this.btComprarBilhete.TabIndex = 18;
+            this.btComprarBilhete.Text = "Comprar Bilhete";
+            this.btComprarBilhete.UseVisualStyleBackColor = true;
+            this.btComprarBilhete.Click += new System.EventHandler(this.btComprarBilhete_Click);
             // 
             // btMostarTodosFilmes
             // 
@@ -247,6 +248,7 @@
             this.listViewFilmes.TabIndex = 5;
             this.listViewFilmes.UseCompatibleStateImageBehavior = false;
             this.listViewFilmes.View = System.Windows.Forms.View.Details;
+            this.listViewFilmes.VisibleChanged += new System.EventHandler(this.listViewFilmes_VisibleChanged);
             // 
             // columnHeader1
             // 
@@ -329,7 +331,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Button btPrincipal;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btComprarBilhete;
     }
 }
 

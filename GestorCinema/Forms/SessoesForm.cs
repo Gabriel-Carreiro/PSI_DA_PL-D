@@ -61,6 +61,8 @@ namespace GestorCinema
                 item.SubItems.Add(sessao.DataHora.ToShortDateString());
                 item.SubItems.Add(sessao.DataHora.ToShortTimeString());
                 item.SubItems.Add(sessao.Filme.Estado.ToString());
+                item.SubItems.Add(sessao.Filme.Nome.ToString());
+                item.SubItems.Add(sessao.Sala.ToString());
 
                 list_sessions.Items.Add(item);
             }
@@ -135,13 +137,44 @@ namespace GestorCinema
             switch (search)
             {
                 case "Id do Filme":
-                    found_films = filmes.FindAll(filme => filme.Id == int.Parse(search_for));
+                    try
+                    {
+                        found_films = filmes.FindAll(filme => filme.Id == int.Parse(search_for));
+                    }
+                    catch
+                    {
+                        MessageBox.Show("ERRO ao buacar id");
+                    }
                     break;
                 case "Nome":
-                    found_films = filmes.FindAll(filme => filme.Nome == search_for);
+                    try
+                    {
+                        search_for = search_for.ToUpper();
+                        found_films = filmes.FindAll(filme => filme.Nome.ToUpper().Contains(search_for));
+                        if(found_films.Count < 1)
+                        {
+                            MessageBox.Show("Nome nao encontrado");
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("ERRO ao buacar nome");
+                    }
                     break;
                 case "Categoria":
-                    found_films = filmes.FindAll(filme => filme.Categoria.Nome == search_for);
+                    try
+                    {
+                        search_for = search_for.ToUpper();
+                        found_films = filmes.FindAll(filme => filme.Categoria.Nome.ToUpper().Contains(search_for));
+                        if (found_films.Count < 1)
+                        {
+                            MessageBox.Show("Categoria nao encontrada");
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("ERRO ao buacar categoria");
+                    }
                     break;
                 default:
                     MessageBox.Show("Opção inválida!");

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -82,6 +83,7 @@ namespace GestorCinema
             //adiciona o filme a base de dados
             applicationContext.Filmes.Add(filme);
             applicationContext.SaveChanges();
+            applicationContext.Filmes.Load();
             LimparListView();
 
         }
@@ -119,6 +121,7 @@ namespace GestorCinema
                 }
             }
             applicationContext.SaveChanges();
+            applicationContext.Categorias.Load();
             atualizarCategorias();
         }
 
@@ -235,6 +238,7 @@ namespace GestorCinema
 
             //atualizar o filme na base de dados
             applicationContext.SaveChanges();
+            applicationContext.Filmes.Load();
             LimparListView();
         }
         }

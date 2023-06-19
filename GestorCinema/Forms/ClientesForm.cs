@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -56,6 +57,7 @@ namespace GestorCinema
             //adiciona o cliente a base de dados
             applicationContext.Pessoas.Add(clienteNovo);
             applicationContext.SaveChanges();
+            applicationContext.Pessoas.Load();
             MessageBox.Show("cliente salvo");
             LimparFormulario();
         }
@@ -185,6 +187,7 @@ namespace GestorCinema
 
             //atualizar o cliente na base de dados
             applicationContext.SaveChanges();
+            applicationContext.Pessoas.Load();
             LimparListView();
         }
     }

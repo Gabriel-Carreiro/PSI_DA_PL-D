@@ -9,7 +9,7 @@ namespace GestorCinema
     internal class Cliente : Pessoa
     {
         public int BilhetesAdiquiridos { get; set; }
-        public int TotalGasto { get; set; }
+        public float TotalGasto { get; set; }
 
         public Cliente(string nome, string morada, string nif, string telefone) { 
 
@@ -19,6 +19,12 @@ namespace GestorCinema
             Telefone = telefone;
         }
         public Cliente() { }
+
+        public void AdicionarBilhete(Sessao sessao)
+        {
+            BilhetesAdiquiridos++;
+            TotalGasto += sessao.Preco;
+        }
 
     }
 }
