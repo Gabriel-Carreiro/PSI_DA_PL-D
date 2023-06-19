@@ -105,7 +105,7 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LugarButton.cs">
+    <Compile Include="Filmes\LugarButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Pessoa\Pessoa.cs" />

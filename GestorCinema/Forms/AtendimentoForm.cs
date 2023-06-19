@@ -9,6 +9,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Collections.Specialized.BitVector32;
 
 namespace GestorCinema
 {
@@ -86,7 +87,12 @@ namespace GestorCinema
                     button.Size = new Size(70,50);
                     button.Text = (char)(i + 65) + "" + (j + 1);
                     button.BackgroundImageLayout = ImageLayout.Zoom;
-                    button.BackgroundImage = Image.FromFile("E:\\OneDrive - IPLeiria\\1º Ano\\S2\\Desenvolvimento de Aplicações\\Projeto\\ProjetoDA\\GestorCinema\\cadeira.png");
+                    string lugar = (char)(i + 65) + "" + (j + 1);
+                    //Se lugar não estiver ocupado mostra a cadeira
+                    if (bilhetes.FindAll(bilhete => bilhete.Lugar == lugar).Count == 0)
+                    {
+                        button.BackgroundImage = Image.FromFile("E:\\OneDrive - IPLeiria\\1º Ano\\S2\\Desenvolvimento de Aplicações\\Projeto\\ProjetoDA\\GestorCinema\\cadeira.png");
+                    }
                     button.Click += delegate(object sender, EventArgs e) { LugarClicked(sender, e, sessao, cliente); };
                     tableLayoutPanel1.Controls.Add(button, j, i);
                 }
@@ -111,7 +117,7 @@ namespace GestorCinema
             string lugar = (char)(button.X + 65) + "" + (button.Y + 1);
 
             //Se o lugar estiver ocupado por alguém não poderá criar o bilhete
-            if (bilhetes.FindAll(bilhete => bilhete.Sessao == session).ToList().Count > 0)
+            if (bilhetes.FindAll(bilhete => bilhete.Lugar == lugar).Count > 0)
             {
                 MessageBox.Show("Este lugar já está ocupado!");
             }
