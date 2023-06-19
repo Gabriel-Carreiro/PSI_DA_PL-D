@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.list_sessions = new System.Windows.Forms.ListView();
+            this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Hora = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Sala = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Preco = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btClienteAnonimo = new System.Windows.Forms.Button();
             this.btSelecionarCliente = new System.Windows.Forms.Button();
             this.list_clients = new System.Windows.Forms.ListView();
@@ -39,8 +44,8 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.search = new System.Windows.Forms.Button();
+            this.search_for = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,11 +55,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.list_sessions = new System.Windows.Forms.ListView();
-            this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Hora = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Sala = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Preco = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.TabAtendimento.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -67,8 +67,8 @@
             this.groupBox1.Controls.Add(this.btClienteAnonimo);
             this.groupBox1.Controls.Add(this.btSelecionarCliente);
             this.groupBox1.Controls.Add(this.list_clients);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.search);
+            this.groupBox1.Controls.Add(this.search_for);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -82,6 +82,39 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Atendimento";
+            // 
+            // list_sessions
+            // 
+            this.list_sessions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Id,
+            this.Hora,
+            this.Sala,
+            this.Preco});
+            this.list_sessions.HideSelection = false;
+            this.list_sessions.Location = new System.Drawing.Point(17, 81);
+            this.list_sessions.Margin = new System.Windows.Forms.Padding(2);
+            this.list_sessions.Name = "list_sessions";
+            this.list_sessions.Size = new System.Drawing.Size(210, 277);
+            this.list_sessions.TabIndex = 15;
+            this.list_sessions.UseCompatibleStateImageBehavior = false;
+            this.list_sessions.View = System.Windows.Forms.View.Details;
+            // 
+            // Id
+            // 
+            this.Id.Text = "Id";
+            this.Id.Width = 37;
+            // 
+            // Hora
+            // 
+            this.Hora.Text = "Hora";
+            // 
+            // Sala
+            // 
+            this.Sala.Text = "Sala";
+            // 
+            // Preco
+            // 
+            this.Preco.Text = "Preço";
             // 
             // btClienteAnonimo
             // 
@@ -159,23 +192,24 @@
             this.columnHeader7.Text = "Total gasto";
             this.columnHeader7.Width = 85;
             // 
-            // button4
+            // search
             // 
-            this.button4.Location = new System.Drawing.Point(592, 50);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(61, 19);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Buscar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.search.Location = new System.Drawing.Point(592, 50);
+            this.search.Margin = new System.Windows.Forms.Padding(2);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(61, 19);
+            this.search.TabIndex = 10;
+            this.search.Text = "Buscar";
+            this.search.UseVisualStyleBackColor = true;
+            this.search.Click += new System.EventHandler(this.search_Click);
             // 
-            // textBox2
+            // search_for
             // 
-            this.textBox2.Location = new System.Drawing.Point(336, 50);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(253, 20);
-            this.textBox2.TabIndex = 8;
+            this.search_for.Location = new System.Drawing.Point(336, 50);
+            this.search_for.Margin = new System.Windows.Forms.Padding(2);
+            this.search_for.Name = "search_for";
+            this.search_for.Size = new System.Drawing.Size(253, 20);
+            this.search_for.TabIndex = 8;
             // 
             // label3
             // 
@@ -282,39 +316,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(682, 394);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
-            // list_sessions
-            // 
-            this.list_sessions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Id,
-            this.Hora,
-            this.Sala,
-            this.Preco});
-            this.list_sessions.HideSelection = false;
-            this.list_sessions.Location = new System.Drawing.Point(17, 81);
-            this.list_sessions.Margin = new System.Windows.Forms.Padding(2);
-            this.list_sessions.Name = "list_sessions";
-            this.list_sessions.Size = new System.Drawing.Size(210, 277);
-            this.list_sessions.TabIndex = 15;
-            this.list_sessions.UseCompatibleStateImageBehavior = false;
-            this.list_sessions.View = System.Windows.Forms.View.Details;
-            // 
-            // Id
-            // 
-            this.Id.Text = "Id";
-            this.Id.Width = 37;
-            // 
-            // Hora
-            // 
-            this.Hora.Text = "Hora";
-            // 
-            // Sala
-            // 
-            this.Sala.Text = "Sala";
-            // 
-            // Preco
-            // 
-            this.Preco.Text = "Preço";
-            // 
             // AtendimentoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -350,8 +351,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button search;
+        private System.Windows.Forms.TextBox search_for;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public System.Windows.Forms.TabPage tabPage2;

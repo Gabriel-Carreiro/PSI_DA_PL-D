@@ -15,10 +15,10 @@ namespace GestorCinema
     public partial class AtendimentoForm : Form
     {
         private ApplicationContext applicationContext;
-        List<Filme> filmes;
-        List<Sala> salas;
-        List<Cliente> clientes;
-        List<Sessao> sessoes;
+        private List<Filme> filmes;
+        private List<Sala> salas;
+        private List<Cliente> clientes;
+        private List<Sessao> sessoes;
 
         public AtendimentoForm()
         {
@@ -37,13 +37,13 @@ namespace GestorCinema
             //Chamar método para mostrar filmes
             show_films();
             //Chamar método para mostrar clientes
-            show_clients();
+            show_clients(clientes);
         }
 
         //Método para colocar clientes na listView
-        private void show_clients()
+        private void show_clients(List<Cliente> clientes_esc)
         {
-            foreach(Cliente cliente in clientes)
+            foreach(Cliente cliente in clientes_esc)
             {
                 ListViewItem item = new ListViewItem(cliente.Id.ToString());
                 item.SubItems.Add(cliente.Nome);
@@ -104,6 +104,8 @@ namespace GestorCinema
         {
             LugarButton button = (LugarButton)sender;
             MessageBox.Show("X: " + button.X + " Y: " + button.Y);
+
+
         }
 
         //Caso o cliente nao queira usar sua conta
@@ -141,6 +143,15 @@ namespace GestorCinema
             }
         }
 
+        //Método para limpar listView de clientes
+        private void clean_clients()
+        {
+            while (list_clients.Items.Count > 0)
+            {
+                list_clients.Items.RemoveAt(0);
+            }
+        }
+
         //Quando for selecionado um filme, mostrar a lista de sessões para esse filme na data escolhida
         private void list_films_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -160,6 +171,21 @@ namespace GestorCinema
                     list_sessions.Items.Add(item);
                 }
             }
+        }
+
+        private void search_Click(object sender, EventArgs e)
+        {
+            List<Cliente> clientesEncontrados = clientes.FindAll(cliente =>
+                cliente.Id.ToString().Contains(search_for.Text) ||
+                cliente.Nome.ToLower().Equals(search_for.Text) ||
+                cliente.Nif.Equals(search_for.Text) ||
+                cliente.Telefone.Equals(search_for.Text) ||
+                cliente.Morada.ToLower().Equals(search_for.Text)
+                );
+
+            clean_clients();
+
+            show_clients(clientesEncontrados);
         }
     }
 }
