@@ -19,6 +19,8 @@ namespace GestorCinema
         private List<Sala> salas;
         private List<Cliente> clientes;
         private List<Sessao> sessoes;
+        private List<Bilhete> bilhetes;
+        private TabControl control;
 
         public AtendimentoForm()
         {
@@ -34,6 +36,8 @@ namespace GestorCinema
             //Criar lista para sessões
             sessoes = applicationContext.Sessoes.ToList();
 
+            //Chamar método para atualizar bilhetes
+            atualizar_bilhetes();
             //Chamar método para mostrar filmes
             show_films();
             //Chamar método para mostrar clientes
@@ -64,7 +68,7 @@ namespace GestorCinema
         }
 
         //Essa função vai abrir a tab2 e criar o numero de cadeiras conforme o numero salvo na sala selecionada
-        private void SelecionarSala(Sessao sessao)
+        private void SelecionarSala(Sessao sessao, Cliente cliente)
         {
 
             tableLayoutPanel1.SuspendLayout();
@@ -83,13 +87,13 @@ namespace GestorCinema
                     button.Text = (char)(i + 65) + "" + (j + 1);
                     button.BackgroundImageLayout = ImageLayout.Zoom;
                     button.BackgroundImage = Image.FromFile("E:\\OneDrive - IPLeiria\\1º Ano\\S2\\Desenvolvimento de Aplicações\\Projeto\\ProjetoDA\\GestorCinema\\cadeira.png");
-                    button.Click += LugarClicked;
+                    button.Click += delegate(object sender, EventArgs e) { LugarClicked(sender, e, sessao, cliente); };
                     tableLayoutPanel1.Controls.Add(button, j, i);
                 }
             }
             tableLayoutPanel1.ResumeLayout();
 
-            TabControl control = tabPage1.Parent as TabControl;
+            control = tabPage1.Parent as TabControl;
             control.SelectedIndex = 1;
 
         }
@@ -100,12 +104,35 @@ namespace GestorCinema
         }
 
         //Captura as cordenadas do botao que foi carregado
-        private void LugarClicked(Object sender, EventArgs e)
+        private void LugarClicked(Object sender, EventArgs e, Sessao session, Cliente client)
         {
             LugarButton button = (LugarButton)sender;
             MessageBox.Show("X: " + button.X + " Y: " + button.Y);
+            string lugar = (char)(button.X + 65) + "" + (button.Y + 1);
 
+            //Se o lugar estiver ocupado por alguém não poderá criar o bilhete
+            if (bilhetes.FindAll(bilhete => bilhete.Sessao == session).ToList().Count > 0)
+            {
+                MessageBox.Show("Este lugar já está ocupado!");
+            }
+            else
+            {
+                Bilhete bilhete = new Bilhete(session, lugar, client);
 
+                applicationContext.Bilhetes.Add(bilhete);
+                applicationContext.SaveChanges();
+                MessageBox.Show("Bilhete Criado");
+                atualizar_bilhetes();
+            }
+            //Volta para a TabPage1
+            control.SelectedIndex = 0;
+        }
+
+        //Método para atualizar lista de bilhetes
+        private void atualizar_bilhetes()
+        {
+            //Criar lista para bilhetes
+            bilhetes = applicationContext.Bilhetes.ToList();
         }
 
         //Caso o cliente nao queira usar sua conta
@@ -115,7 +142,7 @@ namespace GestorCinema
             if(list_sessions.SelectedItems.Count == 1)
             {
                 Sessao sessao = sessoes.Find(session => session.Id == int.Parse(list_sessions.SelectedItems[0].Text));
-                SelecionarSala(sessao);
+                SelecionarSala(sessao,new Cliente());
             }
         }
 
@@ -129,7 +156,8 @@ namespace GestorCinema
             )
             {
                 Sessao sessao = sessoes.Find(session => session.Id == int.Parse(list_sessions.SelectedItems[0].Text));
-                SelecionarSala(sessao);
+                Cliente cliente = clientes.Find(client => client.Id == int.Parse(list_clients.SelectedItems[0].Text));
+                SelecionarSala(sessao, cliente);
             }
 
         }
@@ -173,9 +201,12 @@ namespace GestorCinema
             }
         }
 
+        //Pesquisar por clientes
         private void search_Click(object sender, EventArgs e)
         {
-            List<Cliente> clientesEncontrados = clientes.FindAll(cliente =>
+            if(!string.IsNullOrEmpty(search_for.Text))
+            {
+                List<Cliente> clientesEncontrados = clientes.FindAll(cliente =>
                 cliente.Id.ToString().Contains(search_for.Text) ||
                 cliente.Nome.ToLower().Equals(search_for.Text) ||
                 cliente.Nif.Equals(search_for.Text) ||
@@ -183,9 +214,14 @@ namespace GestorCinema
                 cliente.Morada.ToLower().Equals(search_for.Text)
                 );
 
-            clean_clients();
+                clean_clients();
 
-            show_clients(clientesEncontrados);
+                show_clients(clientesEncontrados);
+            }
+            else
+            {
+                MessageBox.Show("Nada para pesquisar.");
+            }
         }
     }
 }
