@@ -34,6 +34,7 @@ namespace GestorCinema
             //Criar lista para sessões
             sessoes = applicationContext.Sessoes.ToList();
 
+            //Chamar método para mostrar filmes
             show_films();
             //Chamar método para mostrar clientes
             show_clients();
@@ -63,23 +64,19 @@ namespace GestorCinema
         }
 
         //Essa função vai abrir a tab2 e criar o numero de cadeiras conforme o numero salvo na sala selecionada
-        private void SelecionarSala()
+        private void SelecionarSala(Sessao sessao)
         {
-            //Enquanto as salas nao foram criadas e nem configurada estou usando essa variavel para escolher o numero de
-            //cadeiras que serao criadas
-            int size = 10;
-            
 
             tableLayoutPanel1.SuspendLayout();
 
             tableLayoutPanel1.Controls.Clear();
-            tableLayoutPanel1.RowCount = size;
-            tableLayoutPanel1.ColumnCount = size;
+            tableLayoutPanel1.RowCount = sessao.Sala.Filas;
+            tableLayoutPanel1.ColumnCount = sessao.Sala.Colunas;
             
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < sessao.Sala.Colunas; i++)
             {
 
-                for (int j = 0; j < size; j++)
+                for (int j = 0; j < sessao.Sala.Filas; j++)
                 {
                     Button button = new LugarButton(i, j);
                     button.Size = new Size(70,50);
@@ -112,18 +109,27 @@ namespace GestorCinema
         //Caso o cliente nao queira usar sua conta
         private void btClienteAnonimo_Click(object sender, EventArgs e)
         {
-            //falta criar variavel que vai armazenar a sala e enviar para o bilhete
-
-            SelecionarSala();
+            //Cliente anonimo apenas é necessário haver uma sessão selecionada
+            if(list_sessions.SelectedItems.Count == 1)
+            {
+                Sessao sessao = sessoes.Find(session => session.Id == int.Parse(list_sessions.SelectedItems[0].Text));
+                SelecionarSala(sessao);
+            }
         }
 
         //Caso o cliente queira usar a conta
         private void btSelecionarCliente_Click(object sender, EventArgs e)
         {
-            //falta criar alguma variavel para armazenar o cliente e enviar para o bilhete
-            //falta criar variavel que vai armazenar a sala e enviar para o bilhete
+            //Para selecionar o cliente é necessário ter o cliente da lista selecionado e a sessão
+            if(
+                (list_sessions.SelectedItems.Count == 1) &&
+                (list_clients.SelectedItems.Count == 1)
+            )
+            {
+                Sessao sessao = sessoes.Find(session => session.Id == int.Parse(list_sessions.SelectedItems[0].Text));
+                SelecionarSala(sessao);
+            }
 
-            SelecionarSala();
         }
 
         //Método para limpar listView de sessões
@@ -135,6 +141,7 @@ namespace GestorCinema
             }
         }
 
+        //Quando for selecionado um filme, mostrar a lista de sessões para esse filme na data escolhida
         private void list_films_SelectedIndexChanged(object sender, EventArgs e)
         {
             //MessageBox.Show("here");
