@@ -129,9 +129,40 @@ namespace GestorCinema
                 applicationContext.SaveChanges();
                 MessageBox.Show("Bilhete Criado");
                 atualizar_bilhetes();
+                export_to_txt(bilhete);
             }
             //Volta para a TabPage1
             control.SelectedIndex = 0;
+        }
+
+        //Método para exportar informação de bilhete para pdf
+        private void export_to_txt(Bilhete bilhete)
+        {
+            string filePath = "bilhete_" + bilhete.Cliente.Nome + ".txt";
+            string information = "Cliente["
+                + bilhete.Cliente.Id.ToString()
+                + "]: "
+                + bilhete.Cliente.Nome
+                + "\tFilme["
+                + bilhete.Sessao.Filme.Id.ToString()
+                + "]: "
+                + bilhete.Sessao.Filme.Nome
+                + Environment.NewLine
+                + "Data: "
+                + bilhete.Sessao.DataHora.ToShortDateString()
+                + "\tHora: "
+                + bilhete.Sessao.DataHora.ToShortTimeString()
+                + Environment.NewLine
+                + "Sala["
+                + bilhete.Sessao.Sala.Id.ToString()
+                + "]: "
+                + bilhete.Sessao.Sala.Nome
+                + "\t\tLugar: "
+                + bilhete.Lugar
+                + Environment.NewLine
+                + "Funcionário[1]: Admin";
+
+            File.WriteAllText(filePath, information);
         }
 
         //Método para atualizar lista de bilhetes
