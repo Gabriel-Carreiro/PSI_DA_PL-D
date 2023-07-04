@@ -23,18 +23,20 @@ namespace GestorCinema
         private List<Filme> filmes;
         private List<Categoria> categorias;
         private List<Sala> salas;
+        private List<Funcionario> funcionarios;
         private ApplicationContext applicationContext;
+        private Funcionario FuncionarioLogado;
 
 
         public PrincipalForm()
         {
             InitializeComponent();
 
-            //temos que fazer com que caso nao esteja logado entre em loop
-            /* this.Hide();
-            Login login = new Login();
-            login.ShowDialog();
-            this.Show(); */
+            //Form do Login
+            /*   this.Hide();
+               LoginForm login = new LoginForm();
+               login.ShowDialog();
+               this.Show();*/
 
         }
 
@@ -204,6 +206,36 @@ namespace GestorCinema
         private void btComprarBilhete_Click(object sender, EventArgs e)
         {
             btAtendimento_Click(sender, e);
+        }
+
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
+            // Limpar a ToolStripDropDownButton
+            toolStripDropDownButton1.DropDownItems.Clear();
+
+            //Iniciar o applicationContext e criar lista de funcionarios
+            applicationContext = new ApplicationContext();
+            funcionarios = applicationContext.Pessoas.OfType<Funcionario>().ToList();
+
+            // Adicionar cada funcionário como uma opção
+            foreach (Funcionario funcionario in funcionarios)
+            {
+                // Criar um item ToolStripMenuItem com o nome do funcionário
+                ToolStripMenuItem item = new ToolStripMenuItem(funcionario.Nome);
+                
+                funcionario.Logado = false;
+                
+                // Alterar o usuario
+                item.Click += (menuItemSender, menuItemEvent) =>
+                {
+                    toolStripStatusLabelUsuario.Text = funcionario.Nome;
+                    funcionario.Logado = true;
+                    MessageBox.Show($"Utilizador alterado para: {funcionario.Nome}");
+                    
+                };
+
+                toolStripDropDownButton1.DropDownItems.Add(item);
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ namespace GestorCinema
         public string Funcao { get; set; }
         public string Login { get; set; }
         public string Senha { get; set; }
+        public bool Logado { get; set; }
         public DateTime DataContratacao { get; set; }
     
         public Funcionario(string nome, string nif, string morada, string telefone, string salario, string funcao, string login, string senha) { 
@@ -25,6 +26,7 @@ namespace GestorCinema
             DataContratacao = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
             Login = login;
             Senha = senha;
+            Logado = false;
 
         }
         public Funcionario() { }

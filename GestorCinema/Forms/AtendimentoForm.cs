@@ -151,22 +151,22 @@ namespace GestorCinema
                     else
                     {
                         Bilhete bilhete = new Bilhete(session, lugar);
-                        if (!lugaresEscolhidos.Any(lugarEsc => lugarEsc.Lugar == lugar))
+                        //verificar se o cliente nao esta escolhendo o mesmo lugar mais de uma vez
+                        if (!lugaresEscolhidos.Any(lugarEscolhido => lugarEscolhido.Lugar == lugar))
                         {
                             applicationContext.Bilhetes.Add(bilhete);
                             lugaresEscolhidos.Add(bilhete);
                             labelTotal.Text = "Total lugares: " + lugaresEscolhidos.Count.ToString();
                             labelLugares.Text += bilhete.Lugar + " ";
                         }
-                        
                     }
                 }
                 //Se cliente nao for nulo cria um bilhete passando o cliente como parametro
                 if (client != null)
                 {
                     Bilhete bilhete = new Bilhete(session, lugar, client);
-
-                    if (!lugaresEscolhidos.Any(lugarEsc => lugarEsc.Lugar == lugar))
+                    //verificar se o cliente nao esta escolhendo o mesmo lugar mais de uma vez
+                    if (!lugaresEscolhidos.Any(lugarEscolhido => lugarEscolhido.Lugar == lugar))
                     {
                         applicationContext.Bilhetes.Add(bilhete);
                         lugaresEscolhidos.Add(bilhete);
@@ -191,7 +191,8 @@ namespace GestorCinema
         //Método para exportar informação de bilhete para txt
         private void export_to_txt(List<Bilhete> bilhetes)
         {
-            foreach(Bilhete bilhete in bilhetes)
+
+            foreach (Bilhete bilhete in bilhetes)
             {
                 if (bilhete.Cliente != null)
                 {
